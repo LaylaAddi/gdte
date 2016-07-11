@@ -19,17 +19,37 @@
         <ul id="topMain" class="nav nav-pills nav-main">
         <!-- HOME -->
         <li><%= link_to "HOME", root_path %></li>
-        <li><%= link_to "ABOUT", root_path %></li>
-        <li><%= link_to "FLATBED", root_path %></li>
-        <li><%= link_to "DRY/REEFER", root_path %></li>
-        <li><%= link_to "HAZMAT", root_path %></li>
+        <li><a class="page-scroll" href="#about">ABOUT</a></li>
+        <li><a class="page-scroll" href="#details">SOCIAL CLUB</a></li>
+        <li><a class="page-scroll" href="#details">FLATBED</a></li>
+        <li><a class="page-scroll" href="#details">DRY/REEFER</a></li>
+        <li><a class="page-scroll" href="#details">HAZMAT</a></li>
+        <li><%= link_to "WANNA DRIVE?", root_path %></li>
+        
+        <li><a class="page-scroll" href="#team">OUR TEAM</a></li>
+        
+        
         <li class="dropdown">
+          <% if !current_dispatcher %>
           <a class="dropdown-toggle" href="#">
           SIGN IN
           </a>
+          <% end %>
+          <% if current_dispatcher %>
+          <a class="dropdown-toggle" href="#">
+          <%= current_dispatcher.username %>
+          </a>
+          <% end %>
           <ul class="dropdown-menu">
-            <li><%= link_to "Dispatch Sign In", "#" %></li>
+            <% if current_dispatcher %>
+            <li><%= link_to "My Profile", edit_dispatcher_registration_path %></li> 
+            <li><%= link_to "End My Session", destroy_dispatcher_session_path, method: :delete %></li>
+            <% end %> 
+            <% if !current_dispatcher %>
+            <li><%= link_to "Create Dispatch Account", new_dispatcher_registration_path %></li>
+            <li><%= link_to "Dispatch Log In", new_dispatcher_session_path %></li>
             <li><%= link_to "Driver Sign In", "#" %></li>
+            <% end %>
           </ul>
         </li>
       </nav>
