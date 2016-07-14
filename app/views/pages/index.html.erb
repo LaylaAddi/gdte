@@ -3,15 +3,57 @@
 <body class="smoothscroll enable-animation">
 <%= render "topnav" %>
 <%= render 'topslide' %> 
-<%= render 'infobar' %>          
-<%= render 'welcome' %> 
-<%= render 'boxrow' %>   
-<%= render 'realsupport' %> 
+<% render 'infobar' %>
+
+<section id="welcome">
+  <%= render 'welcome' %> 
+</section>
+
+<section id="boxrow">
+  <%= render 'boxrow' %>  
+</section> 
+
+<section id="realsupport">
+  <%= render 'realsupport' %>   
+</section> 
+
+
 <%= render 'spinbox' %>          
-<%= render 'skillz' %>  
+
+<section id="dryreefer">
+  <%= render 'pages/trailertypes/dryvanreefer' %> 
+</section> 
+
+<section id="flatbed">
+  <%= render 'pages/trailertypes/flatbed' %> 
+</section> 
+
+<section id="hazmat">
+  <%= render 'pages/trailertypes/hazmat' %>  
+</section>  
+
+<section id="oo">
+  <%= render 'pages/trailertypes/oo' %>  
+</section> 
+
+<section id="teamdrivers">
+  <%= render 'pages/trailertypes/team' %>  
+</section> 
+
+<section id="drivetoowner">
+  <%= render 'pages/trailertypes/drivetoowner' %>  
+</section> 
+
 <%= render 'socialparalax' %>  
-<%= render 'team' %>       
-<%= render 'news' %>            
+
+<section id="team">
+  <%= render 'team' %> 
+</section> 
+
+<section id="news">
+  <%= render 'news' %>  
+</section> 
+            
 <%= render 'owl' %>   
 <%= render 'footer' %>          
 <%= render 'javascripts' %>    
