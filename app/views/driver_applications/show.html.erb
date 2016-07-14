@@ -5,7 +5,7 @@
   <p><%= @driver_application.state %></p>
   <p><%= @driver_application.zip_code %></p>
   <p><%= @driver_application.license_number %></p>
-  <p><%= @driver_application.license_image %></p>
+  <p><%= image_tag @driver_application.license_image_url(:driver_application)  %></p>
   <p><%= @driver_application.social_number %></p>
   <p><%= @driver_application.social_image %></p>
   <p><%= @driver_application.medical_image %></p>

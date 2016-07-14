@@ -14,6 +14,12 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1' #https://rubygems.org/gems/mini_magick/versions/4.5.1
+gem 'fog', '~> 1.38'
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rails_12factor', '~> 0.0.3', group: :production
@@ -23,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'figaro', '~> 1.1', '>= 1.1.1'
   gem 'sqlite3'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

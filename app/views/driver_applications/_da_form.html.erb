@@ -1,21 +1,93 @@
-<%= simple_form_for @driver_application do |da| %>
+<div class='container color1'>  
+  <div class='well bg'>
+    <%= simple_form_for @driver_application do |da| %>
+    
+    <h1>GDT Express Confidential Driver Application</h1>
+    <hr>
+        <div class="row">
+          <div class="col-xs-3"><%= da.input :full_name, label: "Full Name" %></div>
+          <div class="col-xs-2">
+            <%= da.input :street_address, label: "Street Address" %>
+          </div>
+          <div class="col-xs-1">
+            <%= da.input :apartment_number, label: "Apartment" %>
+          </div>
+        <div class="col-xs-2"><%= da.input :town_city, label: "City" %></div>
+          <div class="col-xs-2">
+            <label>Select State</label>
+            <%= select_tag :state, options_for_select(us_states) %>
+          </div>
+          <div class="col-xs-2"><%= da.input :zip_code, label: "ZIP Code" %></div>
+      </div>
+      <hr>
+    <div class="row">
+      <div class="col-xs-3">
+        <%= da.input :license_number, label: "License Number" %>
+      </div>
+      <div class="col-xs-4">
+        <label>Years of Commercial Driving Experience</label>
 
-<%= da.input :full_name %>
-<%= da.input :street_address %> 
-<%= da.input :town_city %>
-<%= da.input :state %>
-<%= da.input :zip_code %>
-<%= da.input :license_number %>
-<%= da.input :license_image, as: :file %> 
-<%= da.input :social_number %>
-<%= da.input :social_image, as: :file  %>
-<%= da.input :medical_image, as: :file  %>
-<%= da.input :years_of_experience %>
-<%= da.input :info %>
-<%= da.input :hazmat %>         
-<%= da.input :dryvan %>
-<%= da.input :reefer %>
-<%= da.input :flatbed %>
-<%= da.submit %>
+            <%= da.input(:years_of_experience, label: false, 
+            input_html: { min: '0', step: '0.5', style: 'width: 100px'}) %>   
+          </div>
+            <div class="col-xs-3">
+          <label>Upload Your License</label>
+            <%= da.input :license_image, as: :file, label: false %>    
+          </div>    
+        </div>
+        
+    <div class="row">
+      <div class="col-xs-3"><%= da.input :social_number, label: "Your SSN" %></div>
+      <div class="col-xs-4"><%= da.input :social_image, as: :file, 
+        label: "Upload Your SSN Card"  %>
+      </div>
+    </div>
 
-<% end %>
+  
+      
+      
+      
+      
+      
+      
+      
+      <label>Upload a copy of your medical card</label>
+      <%= da.input :medical_image, as: :file, label: false  %>
+      <hr>
+      <label>Other information that may help us with your application</label>    
+      <%= da.input :info, label: false  %>
+      
+   <blockquote class="blockquote">
+    <p class="m-b-0">
+      <%= da.input :hazmat, 
+        label: 'Yep, I have a Hazardous Materials Endorsement' %>
+    </p>
+  </blockquote>
+
+             
+  <label>What kind of trailder do you wanna pull? (select as many as you like)</label>
+    <blockquote class="blockquote">
+      <p class="m-b-0">
+        <%= da.input :dryvan, 
+        label: "DryVan, I don't like ice cream or straps." %>
+      </p>
+    </blockquote>
+    <blockquote class="blockquote">
+      <p class="m-b-0">
+        <%= da.input :reefer, 
+        label: 'I like it cool, get me a Reefer.' %>
+      </p>
+    </blockquote>
+    <blockquote class="blockquote">
+      <p class="m-b-0">
+        <%= da.input :flatbed, 
+        label: 'Flatbed / Stepdeck - Little more work but I like $!' %>
+      </p>
+    </blockquote>      
+      
+
+      <%= da.submit "Send It", class: "btn btn-success" %>
+      
+      <% end %>
+  </div>
+</div>  

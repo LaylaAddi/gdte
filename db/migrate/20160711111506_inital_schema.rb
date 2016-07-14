@@ -16,11 +16,13 @@ class InitalSchema < ActiveRecord::Migration[5.0]
       t.string :street_address
       t.string :town_city
       t.string :state
+      t.string :apartment_number
       t.string :zip_code
       t.string :license_number
       t.string :license_image
       t.string :social_number
       t.string :social_image
+      t.string :green_image
       t.string :medical_image
       t.string :telephone
       t.string :email
