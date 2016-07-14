@@ -1,0 +1,21 @@
+<%= simple_form_for @driver_application do |da| %>
+
+<%= da.input :full_name %>
+<%= da.input :street_address %> 
+<%= da.input :town_city %>
+<%= da.input :state %>
+<%= da.input :zip_code %>
+<%= da.input :license_number %>
+<%= da.input :license_image %>
+<%= da.input :social_number %>
+<%= da.input :social_image %>
+<%= da.input :medical_image %>
+<%= da.input :years_of_experience %>
+<%= da.input :info %>
+<%= da.input :hazmat %>         
+<%= da.input :dryvan %>
+<%= da.input :reefer %>
+<%= da.input :flatbed %>
+<%= da.submit %>
+
+<% end %>

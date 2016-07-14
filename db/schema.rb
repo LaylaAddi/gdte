@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711111506) do 
+ActiveRecord::Schema.define(version: 20160711111506) do
 
   create_table "dispatchers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,14 +38,39 @@ ActiveRecord::Schema.define(version: 20160711111506) do
     t.index ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true
   end
 
+  create_table "driver_applications", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "street_address"
+    t.string   "town_city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "license_number"
+    t.string   "license_image"
+    t.string   "social_number"
+    t.string   "social_image"
+    t.string   "medical_image"
+    t.string   "telephone"
+    t.string   "email"
+    t.integer  "years_of_experience"
+    t.text     "info"
+    t.boolean  "hazmat",              default: false
+    t.boolean  "dryvan",              default: false
+    t.boolean  "reefer",              default: false
+    t.boolean  "flatbed",             default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
   create_table "trucks", force: :cascade do |t|
-    t.integer "odometer"
-    t.date    "last_pm"
-    t.date    "last_wash"
-    t.string  "city"
-    t.string  "state"
-    t.float   "latitude"
-    t.float   "longitude"
+    t.integer  "odometer"
+    t.date     "last_pm"
+    t.date     "last_wash"
+    t.string   "city"
+    t.string   "state"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
