@@ -6,10 +6,10 @@
 <%= da.input :state %>
 <%= da.input :zip_code %>
 <%= da.input :license_number %>
-<%= da.input :license_image %>
+<%= da.input :license_image, as: :file %> 
 <%= da.input :social_number %>
-<%= da.input :social_image %>
-<%= da.input :medical_image %>
+<%= da.input :social_image, as: :file  %>
+<%= da.input :medical_image, as: :file  %>
 <%= da.input :years_of_experience %>
 <%= da.input :info %>
 <%= da.input :hazmat %>         
