@@ -1,1 +1,64 @@
-DA index
+<div class='container'>
+<table class="table table-bordered table-responsive">
+	<thead>
+		<tr>
+			<th>
+				Application ID
+			</th>
+			<th>
+				Status
+			</th>
+			<th>
+				Driver Name
+			</th>
+			<th>
+				Location
+			</th>
+			<th>
+				[HEADER]
+			</th>
+			<th>
+				[HEADER]
+			</th>
+			<th>
+				[HEADER]
+			</th>
+			<th>
+		
+			</th>
+		</tr>
+	</thead>
+	<% @driver_applications.each do |da| %>
+	<tbody>
+		<tr>
+			<td>
+				<%= da.id %>
+			</td>
+			<td>
+				<%= da.status %>
+			</td>
+			<td>
+				<%= da.full_name %>
+			</td>
+			<td>
+				<%= da.state %>
+			</td>
+			<td>
+				<%= da.id %>
+			</td>
+			<td>
+				<%= da.id %>
+			</td>
+			<td>
+				<%= da.id %>
+			</td>
+			<td>
+			  <%= link_to "View Driver", da, class: 'btn btn-primary btn-xs' %>
+			</td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+</div>
+
+     

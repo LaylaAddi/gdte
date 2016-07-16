@@ -71,14 +71,17 @@ ActiveRecord::Schema.define(version: 20160714043219) do
     t.string   "medical_image"
     t.string   "telephone"
     t.string   "email"
-    t.integer  "years_of_experience"
+    t.decimal  "years_of_experience"
     t.text     "info"
     t.boolean  "hazmat",              default: false
     t.boolean  "dryvan",              default: false
     t.boolean  "reefer",              default: false
     t.boolean  "flatbed",             default: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "status",              default: "Pending"
+    t.date     "dob"
+    t.string   "pdf"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "trucks", force: :cascade do |t|

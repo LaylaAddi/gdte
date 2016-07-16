@@ -26,13 +26,16 @@ class InitalSchema < ActiveRecord::Migration[5.0]
       t.string :medical_image
       t.string :telephone
       t.string :email
-      t.integer :years_of_experience
+      t.decimal :years_of_experience
       t.text :info
       t.boolean :hazmat, default: false         
       t.boolean :dryvan, default: false
       t.boolean :reefer, default: false
       t.boolean :flatbed, default: false
-      t.timestamps
+      t.string :status, default: 'Pending'
+      t.date :dob
+      t.string :pdf
+       t.timestamps
       
     end 
     

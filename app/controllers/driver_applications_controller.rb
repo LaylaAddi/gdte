@@ -1,9 +1,10 @@
 class DriverApplicationsController < ApplicationController
   before_action :find_id, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_dispatcher!, except: [:new, :create]
   
   
   def index
+    @driver_applications = DriverApplication.all
   end
 
   
@@ -18,8 +19,8 @@ class DriverApplicationsController < ApplicationController
   def create
     @driver_application = DriverApplication.new(the_driver_application_parameters)
     if @driver_application.save
-    redirect_to @driver_application
-    flash[:notice] = "Your driver_application has been saved"
+    redirect_to root_url
+    flash[:notice] = "Your Application has been sent!"
     else
       flash[:alert] = "There was a problem saving your application"
       render :new
@@ -33,7 +34,7 @@ class DriverApplicationsController < ApplicationController
   def update
     if @driver_application.update(the_driver_application_parameters)
     redirect_to @driver_application
-    flash[:notice] = "Your driver_application has been updated"
+    flash[:notice] = "The driver application has been updated"
     else
       flash[:alert] = "there was an problem updating your driver application."
       render :edit
@@ -43,7 +44,7 @@ class DriverApplicationsController < ApplicationController
     def destroy
       if @driver_application.destroy
       redirect_to root_url
-      flash[:notice] = "Your driver_application has been deleted"
+      flash[:notice] = "The driver application has been deleted"
     end
   end
   
@@ -77,7 +78,10 @@ class DriverApplicationsController < ApplicationController
                                                :reefer,
                                                :flatbed,
                                                :telephone,
-                                               :email
+                                               :email,
+                                               :dob,
+                                               :pdf
+                                               
                                                )
                                      
   end
