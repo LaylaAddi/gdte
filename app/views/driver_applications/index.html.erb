@@ -15,13 +15,13 @@
 				Location
 			</th>
 			<th>
-				[HEADER]
+				Years of Experience
 			</th>
 			<th>
-				[HEADER]
+				Hazmat
 			</th>
 			<th>
-				[HEADER]
+				some other data
 			</th>
 			<th>
 		
@@ -41,16 +41,20 @@
 				<%= da.full_name %>
 			</td>
 			<td>
-				<%= da.state %>
+				<%= da.state %><%= da.town_city %>
 			</td>
 			<td>
-				<%= da.id %>
+				<%= da.years_of_experience %>
 			</td>
 			<td>
-				<%= da.id %>
+				<% if da.hazmat == true %>
+				Yes
+				<% else %>
+				No
+				<% end %>
 			</td>
 			<td>
-				<%= da.id %>
+				more data here
 			</td>
 			<td>
 			  <%= link_to "View Driver", da, class: 'btn btn-primary btn-xs' %>

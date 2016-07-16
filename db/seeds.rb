@@ -1,3 +1,11 @@
+     status =
+      [
+      'Pending',
+      'Approved',
+      'Declined'
+      ]
+  
+  
   city =
     [
     "New York, New York",
@@ -47,10 +55,11 @@
     "18",
     "22.5"]
   steve = Dispatcher.create(email: "steve@chesnowitz.com", password: "password", password_confirmation: "password")
-  5.times do
+  50.times do
   application = DriverApplication.create(full_name: FFaker::Name.name,
                                     street_address: FFaker::Address.street_address,
                                          town_city: city.sample,
+                                            status: status.sample,
                                           zip_code: FFaker::AddressUS.zip_code,
                                     license_number: FFaker::Identification.drivers_license,	
                                      social_number: FFaker::Identification.ssn,	

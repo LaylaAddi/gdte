@@ -39,7 +39,10 @@
                   </tr>
                   <tr>
                     <td>Status Updated On:</td>
-  <td><%= @driver_application.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %></td>
+          <td><%= @driver_application.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
+          By: <%= @dispatcher.username %>
+          </td>
+  
                   </tr>
                   <tr>
                     <td>Date of Birth</td>
@@ -105,6 +108,16 @@
                     <td>Flatbed / Stepdeck</td>
                     <td><%= @driver_application.flatbed %></td>
                   </tr>
+                  <tr>
+                    <td>PDF Document</td>
+                    <td>
+                      <% if @driver_application.pdf_url.present? %>
+                      <a href="<%= @driver_application.pdf_url(:pdf) %>"target="_blank">View PDF</a>
+                      <% else %>
+                       No File Uploaded
+                    <% end %>  
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <%= link_to "Edit", edit_driver_application_path(@driver_application), 
@@ -144,5 +157,8 @@
     </div>
   </div>
 </div>
+
+
+
 
 

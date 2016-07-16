@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  def content_type_whitelist
-    /image\//
-  end
+  # def content_type_whitelist
+  #   /image\//
+  # end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -29,6 +29,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :driver_application do
     process :resize_to_fit => [350, 180]
+  end
+  
+  version :pdf do
+
   end
   #
   # def scale(width, height)
