@@ -1,0 +1,68 @@
+<div class='container'>
+<table class="table table-bordered table-responsive">
+	<thead>
+		<tr>
+			<th>
+				Application ID
+			</th>
+			<th>
+				Status
+			</th>
+			<th>
+				Driver Name
+			</th>
+			<th>
+				Location
+			</th>
+			<th>
+				Years of Experience
+			</th>
+			<th>
+				Hazmat
+			</th>
+			<th>
+				some other data
+			</th>
+			<th>
+		
+			</th>
+		</tr>
+	</thead>
+	<% @drivers.each do |da| %>
+	<tbody>
+		<tr>
+			<td>
+				<%= da.id %>
+			</td>
+			<td>
+				status
+			</td>
+			<td>
+				<%= da.full_name %>
+			</td>
+			<td>
+				<%= da.state %><%= da.city %>
+			</td>
+			<td>
+				<%= da.years_of_experience %>
+			</td>
+			<td>
+				<% if da.hazmat == true %>
+				Yes
+				<% else %>
+				No
+				<% end %>
+			</td>
+			<td>
+				more data here
+			</td>
+			<td>
+			  <%= link_to "View Driver",driver_path(da), class: 'btn btn-primary btn-xs' %>
+			</td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+</div>
+
+     

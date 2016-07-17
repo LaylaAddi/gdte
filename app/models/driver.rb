@@ -1,5 +1,10 @@
-class DriverApplication < ApplicationRecord
-  
+class Driver < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+         
+
   
    mount_uploader :license_image, ImageUploader 
    mount_uploader :social_image, ImageUploader 
@@ -63,15 +68,4 @@ class DriverApplication < ApplicationRecord
       ['Wyoming', 'WY']
       ]
       
-
-  
-   STATUS =
-      [
-      ['Pending'],
-      ['Approved'],
-      ['Declined']
-      ]
-      
-
-
 end

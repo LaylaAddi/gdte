@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714043219) do
+ActiveRecord::Schema.define(version: 20160716171937) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -56,32 +56,53 @@ ActiveRecord::Schema.define(version: 20160714043219) do
     t.index ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true
   end
 
-  create_table "driver_applications", force: :cascade do |t|
+  create_table "drivers", force: :cascade do |t|
     t.string   "full_name"
-    t.string   "street_address"
-    t.string   "town_city"
+    t.string   "telephone"
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "city"
     t.string   "state"
-    t.string   "apartment_number"
     t.string   "zip_code"
+    t.string   "email"
+    t.string   "encrypted_password",     default: "",        null: false
+    t.string   "username"
     t.string   "license_number"
     t.string   "license_image"
     t.string   "social_number"
     t.string   "social_image"
     t.string   "green_image"
     t.string   "medical_image"
-    t.string   "telephone"
-    t.string   "email"
     t.decimal  "years_of_experience"
     t.text     "info"
-    t.boolean  "hazmat",              default: false
-    t.boolean  "dryvan",              default: false
-    t.boolean  "reefer",              default: false
-    t.boolean  "flatbed",             default: false
-    t.string   "status",              default: "Pending"
+    t.boolean  "hazmat",                 default: false
+    t.boolean  "dryvan",                 default: false
+    t.boolean  "reefer",                 default: false
+    t.boolean  "flatbed",                default: false
     t.date     "dob"
     t.string   "pdf"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "ids",                    default: "Pending"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,         null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["confirmation_token"], name: "index_drivers_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_drivers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
+  end
+
+  create_table "internal_driver_statuses", force: :cascade do |t|
+    t.string "status", default: "Pending"
   end
 
   create_table "trucks", force: :cascade do |t|

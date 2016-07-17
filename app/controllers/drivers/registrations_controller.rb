@@ -1,0 +1,45 @@
+class Drivers::RegistrationsController < Devise::RegistrationsController
+  
+  
+  private
+
+  def sign_up_params
+    params.require(:driver).permit(:username,
+                                   :password, 
+                                   :password_confirmation,
+                                   :email,
+                                   :full_name,
+                                   :telephone
+                                   )
+  end
+
+  def account_update_params
+    params.require(:driver).permit(:username,
+                                   :password, 
+                                   :password_confirmation,
+                                   :email,
+                                   :street_address_1,
+                                   :street_address_2,
+                                   :city, 
+                                   :state,
+                                   :zip_code,                                   
+                                   :full_name,
+                                   :telephone,
+                                   :license_number,
+                                   :license_image,
+                                   :social_number,
+                                   :social_image,
+                                   :medical_image,
+                                   :years_of_experience,
+                                   :info,
+                                   :hazmat,         
+                                   :dryvan,
+                                   :reefer,
+                                   :flatbed,
+                                   :dob,
+                                   :pdf,
+                                   :ids
+                                   )
+  end
+end
+  
