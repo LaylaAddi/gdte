@@ -3,9 +3,8 @@ class PagesController < ApplicationController
   
   def index
     if current_driver
-      redirect_to driver_profiles_path
-    else
-      redirect_to root_path
+      redirect_to drivers_dashboard_path 
+
     end
   end
 end

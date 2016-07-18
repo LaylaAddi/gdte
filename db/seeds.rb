@@ -1,9 +1,14 @@
-pending = InternalDriverStatus.where(status: "Pending").first_or_create(status: "Pending")
-approved = InternalDriverStatus.where(status: "Approved").first_or_create(status: "Approved")
-declined = InternalDriverStatus.where(status: "Declined").first_or_create(status: "Declined")
-suspended = InternalDriverStatus.where(status: "Suspended").first_or_create(status: "Suspended")
-fired = InternalDriverStatus.where(status: "Fired").first_or_create(status: "Fired") 
-vacation = InternalDriverStatus.where(status: "Vacation").first_or_create(status: "Vacation") 
+
+  ids =
+  [
+    "Pending",
+    "Approved",
+    "Declined",
+    "Active",
+    "Suspended",
+    "Vacation",
+    "Fired"
+    ]
   
   city =
     [

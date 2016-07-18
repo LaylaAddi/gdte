@@ -2,7 +2,10 @@ class DriversController < ApplicationController
   before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
 
  
-
+  def dashboard
+    @driver = Driver.find(current_driver.id)
+  end
+  
   def index
     @drivers = Driver.all
   end

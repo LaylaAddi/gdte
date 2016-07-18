@@ -28,7 +28,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.boolean :flatbed, default: false
       t.date :dob
       t.string :pdf
-      t.string :ids, default: 'Pending'
+      t.string :internal_driver_status, default: 'Pending'
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

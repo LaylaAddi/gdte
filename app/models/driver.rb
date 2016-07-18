@@ -5,7 +5,6 @@ class Driver < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
 
-  
    mount_uploader :license_image, ImageUploader 
    mount_uploader :social_image, ImageUploader 
    mount_uploader :medical_image, ImageUploader
@@ -67,5 +66,17 @@ class Driver < ApplicationRecord
       ['Wisconsin', 'WI'],
       ['Wyoming', 'WY']
       ]
+      
+    IDS =
+      [
+      "Pending",
+      "Approved",
+      "Declined",
+      "Active",
+      "Suspended",
+      "Vacation",
+      "Fired"
+      ]
+  
       
 end

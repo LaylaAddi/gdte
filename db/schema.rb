@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.boolean  "flatbed",                default: false
     t.date     "dob"
     t.string   "pdf"
-    t.string   "ids",                    default: "Pending"
+    t.string   "internal_driver_status", default: "Pending"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -99,10 +99,6 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.index ["confirmation_token"], name: "index_drivers_on_confirmation_token", unique: true
     t.index ["email"], name: "index_drivers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
-  end
-
-  create_table "internal_driver_statuses", force: :cascade do |t|
-    t.string "status", default: "Pending"
   end
 
   create_table "trucks", force: :cascade do |t|

@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatly";
 
 
 body {
@@ -28,5 +29,11 @@ body {
 }
 
 .bg {
-  background-color: #F1FAEE;
+  background-color: #F1FAEE; 
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
 }
