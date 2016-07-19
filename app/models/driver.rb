@@ -9,7 +9,7 @@ class Driver < ApplicationRecord
                          :state,
                          :zip_code,                                   
                          :full_name,
-                         :telephone
+                         :telephone, on: :create
                          
   validates_presence_of  :dob,
                          :city, 
