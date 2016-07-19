@@ -18,7 +18,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1' #https://rubygems.org/gems/mini_magick/versions/4.5.1
 gem 'fog', '~> 1.38'
 gem 'ffaker', '~> 2.2'
-
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 
 
 # Use Capistrano for deployment

@@ -4,7 +4,7 @@ class Dispatchers::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:dispatcher).permit(:username,
+    params.require(:dispatcher).permit(:full_name,
                                        :office,
                                        :telephone,
                                        :extention, 
@@ -15,7 +15,7 @@ class Dispatchers::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:dispatcher).permit(:username,
+    params.require(:dispatcher).permit(:full_name,
                                        :office,
                                        :telephone,
                                        :extention, 

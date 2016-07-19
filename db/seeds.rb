@@ -58,16 +58,19 @@
     "14.5",
     "18",
     "22.5"]
-# 5.times do
-#   dispatcher = Dispatcher.create(email: FFaker::Internet.email, 
-#   password: "password", 
-#   password_confirmation: "password")
-#   puts  dispatcher.inspect
-# end
+25.times do
+  dispatcher = Dispatcher.create(
+  full_name: FFaker::Name.name,
+  telephone: FFaker::PhoneNumber.phone_number,
+  email: FFaker::Internet.email, 
+  password: "password", 
+  password_confirmation: "password")
+  puts  dispatcher.inspect
+end
 
 
 
-  25.times do
+  100.times do
   application = Driver.create(full_name: FFaker::Name.name,
                        street_address_1: FFaker::Address.street_address,
                                    city: city.sample,
@@ -87,7 +90,8 @@
                            social_image: open("app/assets/images/fake_image/ssn/#{rand(1..10)}.jpg"),
                           medical_image: open("app/assets/images/fake_image/med/#{rand(1..5)}.jpg"),
                                password: "password", 
-                  password_confirmation: "password"
+                  password_confirmation: "password",
+                 internal_driver_status: ids.sample
                          )
                                          
   puts application.inspect

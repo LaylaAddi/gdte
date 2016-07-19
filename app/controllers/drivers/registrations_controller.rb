@@ -8,8 +8,27 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :password, 
                                    :password_confirmation,
                                    :email,
+                                   :street_address_1,
+                                   :street_address_2,
+                                   :city, 
+                                   :state,
+                                   :zip_code,                                   
                                    :full_name,
-                                   :telephone
+                                   :telephone,
+                                   :license_number,
+                                   :license_image,
+                                   :social_number,
+                                   :social_image,
+                                   :medical_image,
+                                   :years_of_experience,
+                                   :info,
+                                   :hazmat,         
+                                   :dryvan,
+                                   :reefer,
+                                   :flatbed,
+                                   :dob,
+                                   :pdf,
+                                   :internal_driver_status  
                                    )
   end
 
@@ -17,6 +36,7 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
     params.require(:driver).permit(:username,
                                    :password, 
                                    :password_confirmation,
+                                   :current_password,
                                    :email,
                                    :street_address_1,
                                    :street_address_2,
@@ -38,7 +58,7 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :flatbed,
                                    :dob,
                                    :pdf,
-                                   :ids
+                                   :internal_driver_status  
                                    )
   end
 end

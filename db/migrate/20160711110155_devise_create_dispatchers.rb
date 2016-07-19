@@ -4,7 +4,7 @@ class DeviseCreateDispatchers < ActiveRecord::Migration[5.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :username,              null: false, default: ""
+      t.string :full_name,              null: false, default: ""
       t.string :office
       t.string :telephone
       t.string :extention

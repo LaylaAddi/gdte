@@ -1,14 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 col-md-offset-3 ">
-      
-      
       <br> 
       <p class=" text-info">
         Submitted on: 
         <%= @driver.created_at.strftime("%A %B %e, %Y")%>
         Coordinated Universal Time (UTC)
- 
       </p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
@@ -36,14 +33,21 @@
                 <tbody>
                   <tr>
                     <td>Status:</td>
-                    <td><%=  %></td>
+                    <td><%= @driver.internal_driver_status %></td>
+                  </tr>
+                  <tr>
+                    <td>Truck:</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Trailer:</td>
+                    <td></td>
                   </tr>
                   <tr>
                     <td>Status Updated On:</td>
-          <td><%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
-          By: <%=  %>dispacher info here
-          </td>
-  
+                    <td><%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
+                      By: <%=  %>dispacher info here
+                    </td>
                   </tr>
                   <tr>
                     <td>Date of Birth</td>
@@ -62,12 +66,8 @@
                     <td><%= @driver.street_address_2 %></td>
                   </tr>
                   <tr>
-                    <td>City</td>
-                    <td><%= @driver.city %></td>
-                  </tr>
-                  <tr>
-                    <td>State</td>
-                    <td><%= @driver.state %></td>
+                    <td>City / State</td>
+                    <td><%= @driver.city %>, <%= @driver.state %></td>
                   </tr>
                   <tr>
                     <td>ZIP Code</td>
@@ -115,14 +115,14 @@
                       <% if @driver.pdf_url.present? %>
                       <a href="<%= @driver.pdf_url(:pdf) %>"target="_blank">View PDF</a>
                       <% else %>
-                       No File Uploaded
-                    <% end %>  
+                      No File Uploaded
+                      <% end %>  
                     </td>
                   </tr>
                 </tbody>
               </table>
               <%= link_to "Edit", edit_driver_path(@driver),
-                  class: "btn btn-info" %>
+                class: "btn btn-info" %>
             </div>
           </div>
         </div>
@@ -158,8 +158,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-

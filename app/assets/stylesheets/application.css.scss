@@ -17,20 +17,24 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "flatly";
+@import "layout";  
+@import "essentials";  
+@import "green";   
+@import "header-1";    
+@import "custom";  
 
 
 body {
     overflow-x: hidden !important;
 }
 
-.color1 {
-  color: #1D3557;
-}
+// .color1 {
+//   color: #1D3557;
+// }
 
-.bg {
-  background-color: #F1FAEE; 
-}
+// .bg {
+//   background-color: #F1FAEE; 
+// }
 
 .shadow {
   -moz-box-shadow:    3px 3px 5px 6px #ccc;

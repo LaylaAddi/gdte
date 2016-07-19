@@ -7,8 +7,13 @@ class DriversController < ApplicationController
   end
   
   def index
-    @drivers = Driver.all
+    if params[:internal_driver_status]
+      @drivers = Driver.where(internal_driver_status: params[:internal_driver_status]).page(params[:page]).per(15)
+    else
+      @drivers = Driver.all.page(params[:page]).per(15)
+    end
   end
+  
 
   def new
   end
@@ -74,7 +79,7 @@ class DriversController < ApplicationController
                                      :flatbed,
                                      :dob,
                                      :pdf,
-                                     :ids
+                                     :internal_driver_status  
                                      )
     end
 

@@ -1,9 +1,10 @@
 <div class='container'>
+	<%= paginate @drivers %> 
 <table class="table table-bordered table-responsive">
 	<thead>
 		<tr>
 			<th>
-				Application ID
+				Driver ID
 			</th>
 			<th>
 				Status
@@ -21,48 +22,49 @@
 				Hazmat
 			</th>
 			<th>
-				some other data
+				Updated On
 			</th>
 			<th>
 		
 			</th>
 		</tr>
 	</thead>
-	<% @drivers.each do |da| %>
+	<% @drivers.each do |driver| %>
 	<tbody>
 		<tr>
 			<td>
-				<%= da.id %>
+				<%= driver.id %>
 			</td>
 			<td>
-				status
+				<%= driver.internal_driver_status %>
 			</td>
 			<td>
-				<%= da.full_name %>
+				<%= driver.full_name %>
 			</td>
 			<td>
-				<%= da.state %><%= da.city %>
+				<%= driver.city %>, <%= driver.state %>
 			</td>
 			<td>
-				<%= da.years_of_experience %>
+				<%= driver.years_of_experience %>
 			</td>
 			<td>
-				<% if da.hazmat == true %>
+				<% if driver.hazmat == true %>
 				Yes
 				<% else %>
 				No
 				<% end %>
 			</td>
 			<td>
-				more data here
+				<%= driver.updated_at.strftime("%A %B %e, %Y") %> 
 			</td>
 			<td>
-			  <%= link_to "View Driver",driver_path(da), class: 'btn btn-primary btn-xs' %>
+			  <%= link_to "View Driver",driver, class: 'btn btn-primary btn-xs' %>
 			</td>
 		</tr>
 	</tbody>
 	<% end %>
 </table>
+<%= paginate @drivers %> 
 </div>
 
      

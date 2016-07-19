@@ -1,27 +1,10 @@
-<div class="container">
-  <div class='row'>
-    <div class='col-sm-8'>
-      <labeL>Signed In At</labeL> <%= @dispatcher.current_sign_in_at %><br />
-  <labeL>Current IP Address </labeL> <%= @dispatcher.current_sign_in_ip %><br />
-  <labeL>Total Drivers Tracked </labeL> 4<br />
-  <labeL></labeL> <%= link_to "My Active Hauls", "#" %><br />
-  <labeL></labeL> <%= link_to "Current Drivers", "#" %><br />
-  <labeL></labeL> <%= link_to "Pending Loads", "#" %><br />
-  <labeL></labeL> <%= link_to "Completed Loads", "#" %><br />
-  <labeL></labeL> <%= link_to "Empty Trucks", "#" %><br />
-  Etc...........
-  
-  <%= link_to "Home Page", root_path, class: 'btn btn-info' %>
-    </div>
-    <div class='col-sm-4'>
-      <div class="well">
-        <h2>Hey <%= @dispatcher.username %></h2>
-        
+<div class='container color1'>
+  <div class='well bg shadow'>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
         
           <div class="form-inputs">
-            <%= f.input :username, required: true, autofocus: true %>
+            <%= f.input :full_name, required: true, autofocus: true %>
             <%= f.input :email, required: true %>
             <%= f.input :telephone, required: true %>
             <%= f.input :extention, required: true %>
@@ -44,7 +27,6 @@
        
         
         <%= link_to "Back", :back %>
-      </div>
-    </div>
-  </div>
+
+</div>
 </div>

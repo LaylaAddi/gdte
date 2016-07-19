@@ -1,61 +1,171 @@
-  
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class='container color1'>
+  <div class='well bg shadow'>
+    <h2><%= resource_name.to_s.humanize %>: <%= @driver.full_name %></h2>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
-  
     <div class="form-inputs">
+      <div class="row">
+    <div class="col-xs-3">
       <%= f.input :full_name, required: true, autofocus: true %>
+    </div>
+    <div class="col-xs-3">
       <%= f.input :telephone, required: true %>
+    </div>
+    <div class="col-xs-3">
       <%= f.input :email, required: true %>
-      <%= f.input :street_address_1, required: true %>
-      <%= f.input :street_address_2, required: true %>
-      <%= f.input :city, required: true %>
-      <%= f.input :state, collection: Driver::STATES, label: "Select State", required: true %>
-      <%= f.input :zip_code, required: true %>
-      <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
-      <%= f.input :license_number, label: "License Number" %>
-      <%= f.input :social_number, label: "Your SSN" %>
-              <label>Years of Commercial Driving Experience</label>
-      <%= f.input(:years_of_experience, label: false, 
-              input_html: { min: '0', step: '0.5', style: 'width: 100px'}) %> 
-                      <label>Upload Your License</label>
-      <%= f.input :license_image, as: :file, label: false %> 
-      <%= f.input :social_image, as: :file, 
-                  label: "Upload Your SSN Card"  %>
-      <%= f.input :medical_image, as: :file, 
-                label: "Upload a copy of your medical card"  %>  
-      <%= f.input :pdf, as: :file,
-              label: 'PDF File Upload' %> 
-              <label>Other information that may help us with your application</label>    
-      <%= f.input :info, label: false  %>   
-      <%= f.input :hazmat, 
-              label: 'Yep, I have a Hazardous Materials Endorsement' %>
-      <%= f.input :dryvan, 
-              label: "DryVan" %>   
-      <%= f.input :reefer, 
-                 label: 'I like it cool, get me a Reefer.' %>
-      <%= f.input :flatbed, 
-             label: 'Flatbed / Stepdeck' %> 
-             
+    </div>
+    <div class="col-xs-1">
       
-  
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-3">
+      <%= f.input :street_address_1, required: true %>
+    </div>
+    <div class="col-xs-3">
+      <%= f.input :street_address_2, required: false %>
+    </div>
+    <div class="col-xs-3">
+      <%= f.input :city, required: true %>
+    </div>
+    <div class="col-xs-3">
+      <%= f.input :state, collection: Driver::STATES, label: "Select State", required: true %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-2">
+      <%= f.input :zip_code, required: true %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
+    </div>
+    <div class="col-xs-3">
+     <%= f.input :license_number, label: "License Number" %>
+    </div>
+    <div class="col-xs-3">
+      <%= f.input :social_number, label: "Your SSN" %>
+    </div>
+</div>
+<hr>
+
+      
+      
+      
+      <div class="row">
+    <div class="col-xs-3">
+            <label></label>
+      <%= f.input :license_image, as: :file, label: "Upload Your License" %> 
+    </div>
+    <div class="col-xs-3">
+            <%= f.input :social_image, as: :file, 
+        label: "Upload Your SSN Card"  %>
+    </div>
+    <div class="col-xs-3">
+            <%= f.input :medical_image, as: :file, 
+        label: "Upload a copy of your medical card"  %>  
+    </div>
+    <div class="col-xs-3">
+             <%= f.input :pdf, as: :file,
+        label: 'Upload A PDF Document Here' %> 
+    </div>
+</div>
+<hr>
+<div class="row">
+      <div class="col-xs-6"> 
+      <label>Years of Commercial Driving Experience</label>
+      <%= f.input(:years_of_experience, label: false, 
+        input_html: { min: '0', step: '0.5', style: 'width: 100px'}) %>  
+    </div>
+    <div class="col-xs-6">
+            <label>Other information that may help us with your application</label>    
+      <%= f.input :info, label: false  %>  
+    </div>
+
+</div>
+<hr>
+<label>Select all that apply</label> 
+<div class="row">
+    <div class="col-xs-3">
+            <%= f.input :hazmat, 
+        label: 'Yep, I have a Hazardous Materials Endorsement', class: "regular-checkbox" %>
+    </div>
+    <div class="col-xs-3">
+            <%= f.input :dryvan, 
+        label: "I'm okay pulling a Dry / Van" %>
+    </div>
+    <div class="col-xs-3">
+            <%= f.input :reefer, 
+        label: 'I like it cool, get me a Reefer' %>
+    </div>
+    <div class="col-xs-3">
+      
+      <%= f.input :flatbed, 
+        label: "I'm okay pulling aFlatbed / Stepdeck" %> 
+    </div>
+</div>
+<hr>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+
+
+ 
+
+   
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-  
-      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-      <%= f.input :password_confirmation, required: false %>
-      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+      
+      <div class="row">
+    <div class="col-xs-5">
+            <%= f.input :current_password, 
+            hint: "we need your current password to update your info", 
+            required: true, label: "Enter your current password to save any changes" %>
     </div>
-  
-    <div class="form-actions">
-      <%= f.button :submit, "Update" %>
+    <div class="col-xs-4">
+          <div class="form-actions"><br />
+      <%= f.button :submit, "Update", class: "btn btn-success" %> 
     </div>
-  <% end %>
-  
-  <h3>Cancel my account</h3>
-  
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  
-  <%= link_to "Back", :back %>
+    
+    </div>
+    <div class="col-xs-2"></div>
+    <div class="col-xs-2">
+      
+    </div>
+</div>
+<hr>
+<label>If you want to change your password (Make sure to enter your current password above to save)</label>
+<div class="row">
+    <div class="col-xs-3">
+            <%= f.input :password, autocomplete: "off", required: false, label: "Enter a new password" %>
+
+    </div>
+    
+    <div class="col-xs-3">
+      <%= f.input :password_confirmation, required: false, label: "Confirm your new password" %>
+    </div>
+    <div class="col-xs-1"></div>
+    <div class="col-xs-1"></div>
+</div>
+      
+
+    </div>
+<% end %>
+    
+    <%= link_to "Back", :back %>
+  </div>
+</div>

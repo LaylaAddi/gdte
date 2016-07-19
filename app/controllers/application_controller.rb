@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   def disable_navigation
     @disable_navigation = true
   end
+  
+  
 end

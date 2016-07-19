@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160716171937) do
   create_table "dispatchers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "username",               default: "", null: false
+    t.string   "full_name",              default: "", null: false
     t.string   "office"
     t.string   "telephone"
     t.string   "extention"
