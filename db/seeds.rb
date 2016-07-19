@@ -79,7 +79,7 @@ end
                           social_number: FFaker::Identification.ssn,	
                               telephone: FFaker::PhoneNumber.phone_number,
                                     dob: FFaker::Time.date,
-                                  email: FFaker::Internet.email,
+                                  email: FFaker::Internet.disposable_email,
                     years_of_experience: yoe.sample,
                                    info: FFaker::Lorem.sentence,
                                  hazmat: FFaker::Boolean.random,
