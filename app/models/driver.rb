@@ -5,7 +5,6 @@ class Driver < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
   validates_presence_of  :street_address_1,
-                         :email
                          :city, 
                          :state,
                          :zip_code,                                   
