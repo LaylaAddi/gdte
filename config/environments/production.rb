@@ -83,4 +83,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.action_mailer.default_url_options = { host: 'http://gdtexpress.com' } 
+  
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    domain: 'www.gdtexpress.com',
+    user_name: ENV["EMAILUSERNAME" ],
+    password: ENV["EMAILPASSWORD" ],
+    port: 587,
+    authentication : :plain,
+    enable_starttls_auto : true }
 end

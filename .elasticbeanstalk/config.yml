@@ -1,0 +1,11 @@
+branch-defaults:
+  master:
+    environment: gdte-env2
+    group_suffix: null
+global:
+  application_name: gdtexpresssite
+  default_ec2_keyname: gdexpresskey
+  default_platform: Ruby 2.3 (Puma)
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git
