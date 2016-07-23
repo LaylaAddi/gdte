@@ -7,9 +7,9 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-role :app, %w{deploy@162.243.172.37}
-role :web, %w{deploy@162.243.172.37}
-role :db, %w{deploy@162.243.172.37}, :primary => true
+role :app, %w{deploy@159.203.176.119}
+role :web, %w{deploy@159.203.176.119}
+role :db, %w{deploy@159.203.176.119}, :primary => true
 set :branch, "production"
 set :rails_env, "production"
 set :deploy_to, "/var/www/gdte_production"
