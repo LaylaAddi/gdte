@@ -20,13 +20,12 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-set :application, 'gdte'
-set :repo_url, 'git@github.com:LaylaAddi/gdte.git'
-set :user, "deploy"
-set :stages, %w(production staging)
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids',
-'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-
+role :app, %w{deploy@159.203.176.119}
+role :web, %w{deploy@159.203.176.119}
+role :db, %w{deploy@159.203.176.119}, :primary => true
+set :branch, "master"
+set :rails_env, "staging"
+set :deploy_to, "/var/www/gdte_staging"
 
 # Configuration
 # =============
