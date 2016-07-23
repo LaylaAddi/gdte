@@ -80,6 +80,11 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+  
+  config.middleware.insert_before(::Rack::Runtime, "::Rack::Auth::
+  Basic", "Staging") do |u, p|
+  u == ENV["STAGING_USERNAME" ] && p == ENV["STAGING_PASSWORD"]
+  end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
