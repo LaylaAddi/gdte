@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'Prepping for deploy to production server'
+git commit -m 'gem "therubyracer"'
 git push -u origin master 
  
 
