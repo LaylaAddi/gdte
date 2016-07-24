@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'gem "docku"'
+git commit -m 'rem0ved fog'
 git push -u origin master 
  
 
