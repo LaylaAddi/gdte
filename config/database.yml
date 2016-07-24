@@ -21,8 +21,8 @@ staging:
   username: deploy
   password: <%= ENV["DATABASE_PASSWORD" ] %>
   
-production:
-  <<: *default
-  database: gdte_production
-  username: deploy
-  password: <%= ENV["DATABASE_PASSWORD" ] %>
+production:  
+  adapter: postgresql
+  url: <%= ENV['POSTGRESQL_URL'] %> #This is the environment variable created by our Dokku command earlier
+  encoding: unicode
+  pool: 5

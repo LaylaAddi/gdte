@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
+
+gem 'rails_12factor', group: :production 
 gem 'rails', '~> 5.0.0'
 gem 'puma', '~> 3.0'
 gem 'pg', '~> 0.18.4'
 gem "therubyracer"
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
-gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
+gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2' 
 gem 'bootstrap-sass-extras'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -31,9 +34,6 @@ group :development, :test do
 end
  
 group :development do
-  gem 'capistrano', '~> 3.5'
-  gem 'capistrano-rails', '~> 1.1', '>= 1.1.7'
-  gem 'capistrano-passenger'
   gem 'figaro', '~> 1.1', '>= 1.1.1'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
