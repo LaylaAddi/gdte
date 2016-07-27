@@ -1,6 +1,6 @@
 class DispatchersController < ApplicationController
   before_action :set_the_dispatcher_by_id, only: [:show]
-
+  before_action :authenticate_dispatcher!
  
   def dashboard
     @dispatcher = Dispatcher.find(current_dispatcher.id)

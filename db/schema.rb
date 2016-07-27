@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160716171937) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "dispatchers", force: :cascade do |t|
@@ -51,9 +54,9 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["confirmation_token"], name: "index_dispatchers_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_dispatchers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_dispatchers_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_dispatchers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "drivers", force: :cascade do |t|
@@ -96,9 +99,9 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.index ["confirmation_token"], name: "index_drivers_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_drivers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_drivers_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "trucks", force: :cascade do |t|
