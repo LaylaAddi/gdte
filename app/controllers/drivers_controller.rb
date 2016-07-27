@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-  before_action :authenticate_dispatcher!
+  before_action :authenticate_driver!
   before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
 
  
