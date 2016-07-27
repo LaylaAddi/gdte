@@ -4,6 +4,7 @@ class DriversController < ApplicationController
 
  
   def dashboard
+    @driver_profile = DriverProfile.find(current_driver.id)
     @driver = Driver.find(current_driver.id)
   end
   
@@ -31,6 +32,7 @@ class DriversController < ApplicationController
       params[:driver].delete(:password)
       params[:driver].delete(:password_confirmation)
     end
+    
     if @driver.update!(driver_account_update_params)
       flash[:success] = "The driver was updated"
       redirect_to @driver
@@ -56,32 +58,34 @@ class DriversController < ApplicationController
     end
   
     def driver_account_update_params
-      params.require(:driver).permit(:username,
-                                     :password, 
-                                     :password_confirmation,
-                                     :email,
-                                     :street_address_1,
-                                     :street_address_2,
-                                     :city, 
-                                     :state,
-                                     :zip_code,                                   
-                                     :full_name,
-                                     :telephone,
-                                     :license_number,
-                                     :license_image,
-                                     :social_number,
-                                     :social_image,
-                                     :medical_image,
-                                     :years_of_experience,
-                                     :info,
-                                     :hazmat,         
-                                     :dryvan,
-                                     :reefer,
-                                     :flatbed,
-                                     :dob,
-                                     :pdf,
-                                     :internal_driver_status  
-                                     )
+      params.require(:driver).permit(:password_confirmation,
+                                     :current_password,
+                                     :email, driver_profile_attributes:[
+                                        :street_address_1,
+                                        :street_address_2,
+                                        :city, 
+                                        :state,
+                                        :zip_code,                                   
+                                        :full_name,
+                                        :telephone,
+                                        :license_number,
+                                        :license_image,
+                                        :social_number,
+                                        :social_image,
+                                        :medical_image,
+                                        :years_of_experience,
+                                        :info,
+                                        :hazmat,         
+                                        :dryvan,
+                                        :reefer,
+                                        :flatbed,
+                                        :dob,
+                                        :pdf,
+                                        :internal_driver_status, 
+                                        :id, 
+                                        :driver_id 
+                                        ]
+                                        )
     end
 
 end
