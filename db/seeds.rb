@@ -58,7 +58,7 @@
     "14.5",
     "18",
     "22.5"]
-25.times do
+5.times do
   dispatcher = Dispatcher.create(
   full_name: FFaker::Name.name,
   telephone: FFaker::PhoneNumber.phone_number,
@@ -70,7 +70,7 @@ end
 
 
 
-  100.times do
+  10.times do
   application = Driver.create(full_name: FFaker::Name.name,
                        street_address_1: FFaker::Address.street_address,
                                    city: city.sample,
