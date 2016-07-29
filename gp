@@ -1,6 +1,7 @@
 git add -A
-git commit -m 'updating'
+git commit -m 'driver single table'
 git push -u origin master 
+git push dokku master
 
  
 
