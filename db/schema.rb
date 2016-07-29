@@ -59,41 +59,35 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.index ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "driver_profiles", force: :cascade do |t|
-    t.string  "full_name"
-    t.string  "telephone"
-    t.string  "street_address_1"
-    t.string  "street_address_2"
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip_code"
-    t.string  "license_number"
-    t.string  "license_image"
-    t.string  "social_number"
-    t.string  "social_image"
-    t.string  "green_image"
-    t.string  "medical_image"
-    t.string  "email"
-    t.decimal "years_of_experience"
-    t.text    "info"
-    t.boolean "hazmat",                 default: false
-    t.boolean "dryvan",                 default: false
-    t.boolean "reefer",                 default: false
-    t.boolean "flatbed",                default: false
-    t.date    "dob"
-    t.string  "pdf"
-    t.string  "internal_driver_status", default: "Pending"
-    t.integer "driver_id"
-    t.index ["driver_id"], name: "index_driver_profiles_on_driver_id", using: :btree
-  end
-
   create_table "drivers", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email"
+    t.string   "encrypted_password",     default: "",        null: false
+    t.string   "full_name"
+    t.string   "telephone"
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "license_number"
+    t.string   "license_image"
+    t.string   "social_number"
+    t.string   "social_image"
+    t.string   "green_image"
+    t.string   "medical_image"
+    t.decimal  "years_of_experience"
+    t.text     "info"
+    t.boolean  "hazmat",                 default: false
+    t.boolean  "dryvan",                 default: false
+    t.boolean  "reefer",                 default: false
+    t.boolean  "flatbed",                default: false
+    t.date     "dob"
+    t.string   "pdf"
+    t.string   "internal_driver_status", default: "Pending"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,         null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -102,8 +96,8 @@ ActiveRecord::Schema.define(version: 20160716171937) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.index ["confirmation_token"], name: "index_drivers_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree

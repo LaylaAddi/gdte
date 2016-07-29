@@ -70,8 +70,8 @@ end
 
 
 
-  10.times do
-  application = Driver.create(full_name: FFaker::Name.name,
+  50.times do
+  driver = Driver.create(full_name: FFaker::Name.name,
                        street_address_1: FFaker::Address.street_address,
                                    city: city.sample,
                                zip_code: FFaker::AddressUS.zip_code,
@@ -94,5 +94,7 @@ end
                  internal_driver_status: ids.sample
                          )
                                          
-  puts application.inspect
+  puts driver.inspect
 end
+
+ 

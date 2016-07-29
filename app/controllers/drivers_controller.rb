@@ -1,6 +1,7 @@
 class DriversController < ApplicationController
-  before_action :authenticate_driver!
+  before_action :authenticate_user!
   before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
+  before_action :set_the_dispatcher_by_id, only: [:show, :edit, :update, :destroy, :index] 
 
  
   def dashboard
@@ -56,35 +57,37 @@ class DriversController < ApplicationController
     def set_the_driver_by_id
       @driver = Driver.find(params[:id])
     end
+    
+    def set_the_dispatcher_by_id
+      @dispatcher = current_dispatcher
+    end
   
     def driver_account_update_params
-      params.require(:driver).permit(:password_confirmation,
+      params.require(:driver).permit(:password, 
+                                     :password_confirmation,
                                      :current_password,
-                                     :email, driver_profile_attributes:[
-                                        :street_address_1,
-                                        :street_address_2,
-                                        :city, 
-                                        :state,
-                                        :zip_code,                                   
-                                        :full_name,
-                                        :telephone,
-                                        :license_number,
-                                        :license_image,
-                                        :social_number,
-                                        :social_image,
-                                        :medical_image,
-                                        :years_of_experience,
-                                        :info,
-                                        :hazmat,         
-                                        :dryvan,
-                                        :reefer,
-                                        :flatbed,
-                                        :dob,
-                                        :pdf,
-                                        :internal_driver_status, 
-                                        :id, 
-                                        :driver_id 
-                                        ]
+                                     :email,
+                                     :street_address_1,
+                                     :street_address_2,
+                                     :city, 
+                                     :state,
+                                     :zip_code,                                   
+                                     :full_name,
+                                     :telephone,
+                                     :license_number,
+                                     :license_image,
+                                     :social_number,
+                                     :social_image,
+                                     :medical_image,
+                                     :years_of_experience,
+                                     :info,
+                                     :hazmat,         
+                                     :dryvan,
+                                     :reefer,
+                                     :flatbed,
+                                     :dob,
+                                     :pdf,
+                                     :internal_driver_status 
                                         )
     end
 
