@@ -2,6 +2,7 @@ class DriversController < ApplicationController
   before_action :authenticate_user!
   before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
   before_action :set_the_dispatcher_by_id, only: [:show, :edit, :update, :destroy, :index] 
+  before_action :set_stamper
 
  
   def dashboard
@@ -61,6 +62,10 @@ class DriversController < ApplicationController
     def set_the_dispatcher_by_id
       @dispatcher = current_dispatcher
     end
+    
+    def set_stamper
+      Dispatcher.stamper = self.current_dispatcher
+    end    
   
     def driver_account_update_params
       params.require(:driver).permit(:password, 

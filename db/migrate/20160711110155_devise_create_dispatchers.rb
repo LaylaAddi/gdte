@@ -8,7 +8,7 @@ class DeviseCreateDispatchers < ActiveRecord::Migration[5.0]
       t.string :office
       t.string :telephone
       t.string :extention
-
+      t.userstamps 
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

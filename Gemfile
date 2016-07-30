@@ -25,7 +25,7 @@ gem 'fog', '~> 1.38'
 gem 'aws-sdk', '~> 2.4', '>= 2.4.2'
 gem 'ffaker', '~> 2.2'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
-
+gem 'userstamp', :git => 'https://github.com/stricte/userstamp.git', :branch => 'rails4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
