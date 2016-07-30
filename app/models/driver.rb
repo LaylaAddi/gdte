@@ -3,7 +3,7 @@ class Driver < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  has_paper_trail
   
   # validates_presence_of  :street_address_1,
   #                       :city, 

@@ -6,7 +6,16 @@
         Submitted on: 
         <%= @driver.created_at.strftime("%A %B %e, %Y")%>
         Coordinated Universal Time (UTC)
+     
       </p>
+      <% @contributions.each do |version| %>
+
+    <%= version.whodunnit %>
+    <%= version.created_at.strftime("%A %B %e, %Y") %>
+    <%= version.item_id %>
+<% end %>
+
+
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
       <div class="panel panel-info">

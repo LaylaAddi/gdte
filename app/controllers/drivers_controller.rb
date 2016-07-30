@@ -21,7 +21,8 @@ class DriversController < ApplicationController
   def new
   end
 
-  def show
+  def show 
+    @contributions = PaperTrail::Version.all.order("created_at DESC")
   end
  
 
