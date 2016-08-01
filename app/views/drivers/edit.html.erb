@@ -5,7 +5,7 @@
  f.hidden_field :customer_id, :value => @customer.id 
   <%= f.error_notification %>
   <div class="form-inputs">
-    <%= f.input :internal_driver_status, collection: Driver::IDS, label: "Select State", required: true %>
+    <%= f.input :internal_driver_status, collection: Driver::IDS, label: "Internal Status", required: true %>
     <%= f.input :email, required: true %>
     <%= f.input :updated_by, input_html:{ value: @user.full_name }, as: :hidden %>
 

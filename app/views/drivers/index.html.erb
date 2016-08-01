@@ -7,7 +7,22 @@
 				Driver ID
 			</th>
 			<th>
-				Status
+				<div class="btn-group">
+<button type="button" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown">
+		Internal Status <span class="caret"></span></button>
+<ul class="dropdown-menu" role="menu">
+              
+              <li><%= link_to "Pending Approval", drivers_path(internal_driver_status: "Pending") %></li>
+              <li><%= link_to "Approved", drivers_path(internal_driver_status: "Approved") %></li>
+              <li><%= link_to "Active", drivers_path(internal_driver_status: "Active") %></li>
+              <li><%= link_to "Declined", drivers_path(internal_driver_status: "Declined") %></li>
+              <li><%= link_to "Suspended", drivers_path(internal_driver_status: "Suspended") %></li>
+              <li><%= link_to "Vacation", drivers_path(internal_driver_status: "Vacation") %></li>
+              <li><%= link_to "Fired", drivers_path(internal_driver_status: "Fired") %></li>
+<li class="divider"></li>
+<li><%= link_to "All Drivers", drivers_path %></li>
+</ul>
+</div>
 			</th>
 			<th>
 				Driver Name
@@ -22,10 +37,10 @@
 				Hazmat
 			</th>
 			<th>
-				Updated On
+				Submitted On
 			</th>
 			<th>
-		
+		   Updated By
 			</th>
 		</tr>
 	</thead>
@@ -33,13 +48,19 @@
 	<tbody>
 		<tr>
 			<td>
+				<%= link_to driver do %>
 				<%= driver.id %>
+				<% end %>
 			</td>
 			<td>
+				<%= link_to driver do %>
 				<%= driver.internal_driver_status %>
+				<% end %>
 			</td>
 			<td>
+				<%= link_to driver do %>
 				<%= driver.full_name %>
+				<% end %>
 			</td>
 			<td>
 				<%= driver.city %>, <%= driver.state %>
@@ -55,16 +76,22 @@
 				<% end %>
 			</td>
 			<td>
-				<%= driver.updated_at.strftime("%A %B %e, %Y") %> 
+				<%= driver.created_at.strftime("%A %B %e, %Y") %> 
 			</td>
 			<td>
-			  <%= link_to "View Driver",driver, class: 'btn btn-primary btn-xs' %>
+        <% if driver.updated_by.blank? %> 
+        Never Updated
+        <% else %> 
+        <%= driver.updated_by %>
+        <% end %> 
 			</td>
 		</tr>
 	</tbody>
 	<% end %>
 </table>
+
 <%= paginate @drivers %> 
+
 </div>
 
      

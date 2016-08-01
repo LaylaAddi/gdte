@@ -3,21 +3,26 @@
     <div class="col-md-5 col-md-offset-3 ">
       <br> 
       <p class=" text-info">
+        <small>
         Submitted on: 
         <%= @driver.created_at.strftime("%A %B %e, %Y")%>
         Coordinated Universal Time (UTC)
+        </small>
       </p>
       
       <%= %>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
-      <div class="panel panel-info">
+      <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title"><%= @driver.full_name %></h3>
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center">image here</div>
+            <div class="col-md-3 col-lg-3 " align="center">
+                            <%= link_to "Edit", edit_driver_path(@driver),
+                class: "btn btn-primary btn-xs" %>
+            </div>
             <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
               <dl>
                 <dt>DEPARTMENT:</dt>
@@ -31,7 +36,7 @@
               </dl>
               </div>-->
             <div class=" col-md-9 col-lg-9 ">
-              <table class="table table-user-information">
+              <table class="table table-bordered table-striped">
                 <tbody>
                   <tr>
                     <td>Status:</td>
@@ -49,8 +54,13 @@
                     <td>Status Updated On:</td>
                     <td>
                       <strong>
-                        <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
+                        
+                          <% if @driver.updated_by.blank? %> 
+                          Never Updated
+                          <% else %> 
+                          <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
                           By: <%= @driver.updated_by %>
+                          <% end %> 
                       </strong>
                     </td>
                   </tr>
@@ -127,7 +137,7 @@
                 </tbody>
               </table>
               <%= link_to "Edit", edit_driver_path(@driver),
-                class: "btn btn-info" %>
+                class: "btn btn-primary btn-xs" %>
             </div>
           </div>
         </div>

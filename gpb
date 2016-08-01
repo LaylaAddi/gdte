@@ -1,3 +1,3 @@
 git add -A
-git commit -m 'did not user pt implemented own model update deal'
-git push -u origin papertrail
+git commit -m 'sort by internal status'
+git push -u origin mod1-style

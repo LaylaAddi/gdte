@@ -4,6 +4,8 @@ class Driver < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
+  validates_presence_of :full_name   
+  
   mount_uploader :license_image, ImageUploader 
   mount_uploader :social_image, ImageUploader 
   mount_uploader :medical_image, ImageUploader
