@@ -1,12 +1,10 @@
 class PagesController < ApplicationController
-  before_filter :disable_navigation
+  before_action :authenticate_user, except: [:index ]
+  before_action :disable_navigation
   
   def index
     if current_driver
-      redirect_to drivers_dashboard_path 
-    end
-    if current_dispatcher
-      redirect_to dispatchers_dashboard_path 
+      redirect_to driver_dashboard_path
     end
   end
 end

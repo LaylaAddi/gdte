@@ -3,24 +3,7 @@ class Driver < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  
-  # validates_presence_of  :street_address_1,
-  #                       :city, 
-  #                       :state,
-  #                       :zip_code,                                   
-  #                       :full_name,
-  #                       :telephone, on: :create
-                         
-  # validates_presence_of  :dob,
-  #                       :city, 
-  #                       :state,
-  #                       :zip_code,                                   
-  #                       :full_name,
-  #                       :telephone,
-  #                       :license_number,
-  #                       :social_number, on: :update
-
+         
   mount_uploader :license_image, ImageUploader 
   mount_uploader :social_image, ImageUploader 
   mount_uploader :medical_image, ImageUploader
@@ -95,4 +78,5 @@ class Driver < ApplicationRecord
       ]
       
 
-end     
+end            
+

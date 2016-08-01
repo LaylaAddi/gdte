@@ -2,10 +2,9 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
   def change
     create_table :drivers do |t|
       ## Database authenticatable
-
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
- t.string :full_name
+      t.string :full_name
       t.string :telephone
       t.string :street_address_1
       t.string :street_address_2
@@ -18,8 +17,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.string :social_image
       t.string :green_image
       t.string :medical_image
-      t.string :telephone
-      t.string :email
+      t.string :cellphone
       t.decimal :years_of_experience
       t.text :info
       t.boolean :hazmat, default: false         
@@ -28,8 +26,8 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.boolean :flatbed, default: false
       t.date :dob
       t.string :pdf
-      t.string :internal_driver_status, default: 'Pending'      
-     
+      t.string :internal_driver_status, default: 'Pending' 
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
@@ -41,14 +39,14 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.integer  :sign_in_count, default: 0, null: false
       t.datetime :current_sign_in_at
       t.datetime :last_sign_in_at
-      t.string   :current_sign_in_ip
-      t.string   :last_sign_in_ip
+      t.inet     :current_sign_in_ip
+      t.inet     :last_sign_in_ip
 
       ## Confirmable
-       t.string   :confirmation_token
-       t.datetime :confirmed_at
-       t.datetime :confirmation_sent_at
-       t.string   :unconfirmed_email # Only if using reconfirmable
+      # t.string   :confirmation_token
+      # t.datetime :confirmed_at
+      # t.datetime :confirmation_sent_at
+      # t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
@@ -61,7 +59,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
 
     add_index :drivers, :email,                unique: true
     add_index :drivers, :reset_password_token, unique: true
-     add_index :drivers, :confirmation_token,   unique: true
+    # add_index :drivers, :confirmation_token,   unique: true
     # add_index :drivers, :unlock_token,         unique: true
   end
 end

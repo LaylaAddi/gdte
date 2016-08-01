@@ -2,13 +2,11 @@ Rails.application.routes.draw do
  
   devise_for :drivers, :path_prefix => 'gdte',  controllers: { registrations: "drivers/registrations" } 
   resources :drivers
-  devise_for :admin_users, controllers: { registrations: "admin_users/registrations" }
-  devise_for :dispatchers, controllers: { registrations: "dispatchers/registrations" }
-  resources :dispatchers
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   root to: 'pages#index' 
 
-  get 'drivers_dashboard' => 'drivers#dashboard', as: "drivers_dashboard"
-  get 'dispatchers_dashboard' => 'dispatchers#dashboard', as: "dispatchers_dashboard"
+  get 'office_dashboard' => 'users#dashboard', as: "office_dashboard"
+  get 'driver_dashboard' => 'drivers#dashboard', as: "driver_dashboard"
  
 end

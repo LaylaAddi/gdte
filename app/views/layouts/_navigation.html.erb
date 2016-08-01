@@ -1,13 +1,5 @@
-
-<% if !current_driver or !current_dispatcher %>
-  <% render 'layouts/default_navigation' %>
-<% end %>
+  <%= render 'layouts/default_navigation' %>
 
 
-<% if current_dispatcher %>
-  <%= render 'layouts/dispatcher_navigation'%>
-<% end %>
 
-<% if current_driver %>
-  <%= render 'layouts/driver_navigation' %>
-<% end %>
+

@@ -1,7 +1,7 @@
 git add -A
-git commit -m 'driver single table'
+git commit -m 'espinita:install'
 git push -u origin master 
-git push dokku master
+
 
  
 

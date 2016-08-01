@@ -1,12 +1,11 @@
 class DriversController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
-  before_action :set_the_dispatcher_by_id, only: [:show, :edit, :update, :destroy, :index] 
+
 
  
   def dashboard
-    @driver_profile = DriverProfile.find(current_driver.id)
-    @driver = Driver.find(current_driver.id)
+   
+    @driver = current_driver
   end
   
   def index
@@ -88,7 +87,7 @@ class DriversController < ApplicationController
                                      :dob,
                                      :pdf,
                                      :internal_driver_status 
-                                        )
+                                      )
     end
 
 end
