@@ -43,7 +43,7 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :flatbed,
                                    :dob,
                                    :pdf,
-                                   :internal_driver_status 
+                                   :internal_driver_status
                                   )
                               
   end

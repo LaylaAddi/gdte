@@ -1,11 +1,14 @@
 <div class="container">
   <h2>Edit I want here</h2>
+  <%= @user.full_name %> 
   <%= simple_form_for(@driver) do |f| %>
-
+ f.hidden_field :customer_id, :value => @customer.id 
   <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.input :internal_driver_status, collection: Driver::IDS, label: "Select State", required: true %>
     <%= f.input :email, required: true %>
+    <%= f.input :updated_by, input_html:{ value: @user.full_name }, as: :hidden %>
+
     <%= f.input :full_name, required: true, autofocus: true %>
     <%= f.input :telephone, required: true %>
     <%= f.input :street_address_1, required: true %>
@@ -16,19 +19,19 @@
     <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
     <%= f.input :license_number, label: "License Number" %>
     <%= f.input :social_number, label: "Your SSN" %>
-    <label>Years of Commercial Driving Experience</label>
-    <%= f.input(:years_of_experience, label: false, 
+    
+    <%= f.input(:years_of_experience, label: "Years of Commercial Driving Experience", 
       input_html: { min: '0', step: '0.5', style: 'width: 100px'}) %> 
-    <label>Upload Your License</label>
-    <%= f.input :license_image, as: :file, label: false %> 
+  
+    <%= f.input :license_image, as: :file, label: "Upload Your License" %> 
     <%= f.input :social_image, as: :file, 
       label: "Upload Your SSN Card"  %>
     <%= f.input :medical_image, as: :file, 
       label: "Upload a copy of your medical card"  %>  
     <%= f.input :pdf, as: :file,
       label: 'PDF File Upload' %> 
-    <label>Other information that may help us with your application</label>    
-    <%= f.input :info, label: false  %>   
+    
+    <%= f.input :info, label: "Other information that may help us with your application"  %>   
     <%= f.input :hazmat, 
       label: 'Yep, I have a Hazardous Materials Endorsement' %>
     <%= f.input :dryvan, 

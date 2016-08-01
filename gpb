@@ -1,3 +1,3 @@
 git add -A
-git commit -m 'espinita tracking'
-git push -u origin espinita
+git commit -m 'did not user pt implemented own model update deal'
+git push -u origin papertrail

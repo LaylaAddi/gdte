@@ -1,5 +1,6 @@
 class DriversController < ApplicationController
-  before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
+  before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy, :dashboard]
+  before_action :set_the_user, only: [:show, :edit, :update, :destroy]
 
 
  
@@ -21,6 +22,7 @@ class DriversController < ApplicationController
   end
 
   def show
+    
   end
  
 
@@ -57,8 +59,8 @@ class DriversController < ApplicationController
       @driver = Driver.find(params[:id])
     end
     
-    def set_the_dispatcher_by_id
-      @dispatcher = current_dispatcher
+    def set_the_user
+      @user = current_user
     end
   
     def driver_account_update_params
@@ -86,7 +88,8 @@ class DriversController < ApplicationController
                                      :flatbed,
                                      :dob,
                                      :pdf,
-                                     :internal_driver_status 
+                                     :internal_driver_status,
+                                     :updated_by
                                       )
     end
 

@@ -7,8 +7,8 @@
         <%= @driver.created_at.strftime("%A %B %e, %Y")%>
         Coordinated Universal Time (UTC)
       </p>
-      <%= @driver.audits.size %>
-      <%= @driver.history_from_audits_for(:internal_driver_status) %>
+      
+      <%= %>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
       <div class="panel panel-info">
@@ -47,8 +47,11 @@
                   </tr>
                   <tr>
                     <td>Status Updated On:</td>
-                    <td><%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
-                      By: <%=  %>dispacher info here
+                    <td>
+                      <strong>
+                        <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
+                          By: <%= @driver.updated_by %>
+                      </strong>
                     </td>
                   </tr>
                   <tr>
