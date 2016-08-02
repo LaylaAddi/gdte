@@ -58,15 +58,15 @@
     "14.5",
     "18",
     "22.5"]
-# 5.times do
-#   user = Dispatcher.create(
-#   full_name: FFaker::Name.name,
-#   telephone: FFaker::PhoneNumber.phone_number,
-#   email: FFaker::Internet.email, 
-#   password: "password", 
-#   password_confirmation: "password")
-#   puts  dispatcher.inspect
-# end
+5.times do
+  user = Dispatcher.create(
+  full_name: FFaker::Name.name,
+  telephone: FFaker::PhoneNumber.phone_number,
+  email: FFaker::Internet.email, 
+  password: "password", 
+  password_confirmation: "password")
+  puts  dispatcher.inspect
+end
 
 
 

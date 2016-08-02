@@ -1,6 +1,6 @@
 <div class="container">
-  <h2>Edit I want here</h2>
-  <%= @user.full_name %> 
+  <h2>Editing Driver <%= @driver.full_name %></h2>
+   
   <%= simple_form_for(@driver) do |f| %>
  f.hidden_field :customer_id, :value => @customer.id 
   <%= f.error_notification %>

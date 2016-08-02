@@ -69,11 +69,7 @@
 				<%= driver.years_of_experience %>
 			</td>
 			<td>
-				<% if driver.hazmat == true %>
-				Yes
-				<% else %>
-				No
-				<% end %>
+				<%= driver.hazmat_model %>
 			</td>
 			<td>
 				<%= driver.created_at.strftime("%A %B %e, %Y") %> 

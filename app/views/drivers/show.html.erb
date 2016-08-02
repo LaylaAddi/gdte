@@ -65,8 +65,10 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Date of Birth</td>
-                    <td><%= @driver.dob %></td>
+                    <td>DOB/AGE</td>
+                    <td>Was born on <%= @driver.dob.strftime("%B %-d, %Y") %> and is 
+                    <%= distance_of_time_in_words_to_now(@driver.dob, 
+                    only: :years) %> old</td>
                   </tr>
                   <tr>
                     <td>Age</td>
@@ -110,19 +112,19 @@
                   </tr>
                   <tr>
                     <td>Has HazMat</td>
-                    <td><%= @driver.hazmat %></td>
+                    <td><%= @driver.hazmat_model %></td>
                   </tr>
                   <tr>
                     <td>Van</td>
-                    <td><%= @driver.dryvan %></td>
+                    <td><%= @driver.dryvan_model %></td>
                   </tr>
                   <tr>
                     <td>Reefer</td>
-                    <td><%= @driver.reefer %></td>
+                    <td><%= @driver.reefer_model %></td>
                   </tr>
                   <tr>
                     <td>Flatbed / Stepdeck</td>
-                    <td><%= @driver.flatbed %></td>
+                    <td><%= @driver.flatbed_model %></td>
                   </tr>
                   <tr>
                     <td>PDF Document</td>
