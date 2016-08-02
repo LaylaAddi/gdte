@@ -5,7 +5,8 @@ class Driver < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   include States      
   validates_presence_of :full_name   
-  
+  enum internal_driver_status: {pending: 0, approved: 1, active: 2, vacation: 3, 
+  suspended: 4, declined: 5, fired: 3}
   mount_uploader :license_image, ImageUploader 
   mount_uploader :social_image, ImageUploader 
   mount_uploader :medical_image, ImageUploader

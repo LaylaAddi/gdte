@@ -57,15 +57,6 @@ module States
       ['Wyoming', 'WY']
       ]
       
-    IDS =
-  [
-    "Pending",
-    "Approved",
-    "Declined",
-    "Active",
-    "Suspended",
-    "Vacation",
-    "Fired"
-    ]      
+  
 end
   
