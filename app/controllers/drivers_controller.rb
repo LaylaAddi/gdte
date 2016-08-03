@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-  before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy, :dashboard]
+  before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
   before_action :set_the_user, only: [:show, :edit, :update, :destroy, :index]
 
 

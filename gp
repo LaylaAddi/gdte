@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'sendgrid'
+git commit -m 'sendgrid testing'
 git push -u origin master 
 git push heroku master 
 

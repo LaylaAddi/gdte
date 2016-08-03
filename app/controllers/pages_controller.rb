@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user, except: [:index ]
+  before_action :authenticate_user!, except: [:index ]
+  before_action :authenticate_driver!, except: [:index ]  
   before_action :disable_navigation
   
   def index 
