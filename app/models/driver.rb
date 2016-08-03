@@ -6,7 +6,7 @@ class Driver < ApplicationRecord
   include States      
   validates_presence_of :full_name   
   enum internal_driver_status: {pending: 0, approved: 1, active: 2, vacation: 3, 
-  suspended: 4, declined: 5, fired: 3}
+  suspended: 4, declined: 5, fired: 6}
   mount_uploader :license_image, ImageUploader 
   mount_uploader :social_image, ImageUploader 
   mount_uploader :medical_image, ImageUploader
@@ -55,6 +55,35 @@ class Driver < ApplicationRecord
       return "No"
     end
   end  
+
+  
+  def pending
+    self.internal_driver_status == "pending" 
+  end
+  
+  def approved
+    self.internal_driver_status == "approved"
+  end
+  
+  def active
+    self.internal_driver_status == "active"
+  end  
+  
+  def vacation
+    self.internal_driver_status == "vacation"
+  end
+  
+  def suspended
+    self.internal_driver_status == "suspended"
+  end
+  
+  def declined
+    self.internal_driver_status == "declined"
+  end  
+  
+  def fired
+    self.internal_driver_status == "fired"
+  end   
     
   
   

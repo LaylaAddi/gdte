@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711111508) do
+ActiveRecord::Schema.define(version: 20170711111507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "drivers", force: :cascade do |t|
-    t.string   "email",                  default: "",        null: false
-    t.string   "encrypted_password",     default: "",        null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "full_name"
     t.string   "telephone"
     t.string   "street_address_1"
@@ -40,18 +40,18 @@ ActiveRecord::Schema.define(version: 20170711111508) do
     t.boolean  "flatbed",                default: false
     t.date     "dob"
     t.string   "pdf"
-    t.string   "internal_driver_status", default: "Pending"
+    t.integer  "internal_driver_status", default: 0,     null: false
     t.string   "updated_by"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,         null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree
   end
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170711111508) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.integer  "role"
+    t.integer  "user_type",              default: 0,  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -104,16 +104,6 @@ ActiveRecord::Schema.define(version: 20170711111508) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
-  end
-
-  create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  null: false
-    t.integer  "item_id",    null: false
-    t.string   "event",      null: false
-    t.string   "whodunnit"
-    t.text     "object"
-    t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
 
 end

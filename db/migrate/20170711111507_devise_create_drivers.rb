@@ -26,7 +26,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.boolean :flatbed, default: false
       t.date :dob
       t.string :pdf
-      t.string :internal_driver_status, default: 'Pending' 
+      t.integer :internal_driver_status, default: 0, null: false
       t.string :updated_by
 
       ## Recoverable

@@ -1,14 +1,20 @@
 
   ids =
-  [
-    "Pending",
-    "Approved",
-    "Declined",
-    "Active",
-    "Suspended",
-    "Vacation",
-    "Fired"
+  [ 0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
     ]
+    
+    user_type =
+  [ 0,
+    1,
+    2,
+    3
+    ]  
   
   city =
     [
@@ -58,19 +64,21 @@
     "14.5",
     "18",
     "22.5"]
-5.times do
-  user = Dispatcher.create(
+    
+20.times do
+  user = User.create(
   full_name: FFaker::Name.name,
   telephone: FFaker::PhoneNumber.phone_number,
   email: FFaker::Internet.email, 
   password: "password", 
-  password_confirmation: "password")
-  puts  dispatcher.inspect
+  password_confirmation: "password",
+  user_type: user_type.sample)
+  puts  user.inspect
 end
 
 
 
-  50.times do
+  100.times do
   driver = Driver.create(full_name: FFaker::Name.name,
                       street_address_1: FFaker::Address.street_address,
                                   city: city.sample,

@@ -1,0 +1,177 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-3 ">
+      <br> 
+      <p class=" text-info">
+        <small>
+        Submitted on: 
+        <%= @driver.created_at.strftime("%A %B %e, %Y")%>
+        Coordinated Universal Time (UTC)
+        </small>
+      </p>
+      
+      <%= %>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @driver.full_name %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center">
+                            <%= link_to "Edit", edit_driver_path(@driver),
+                class: "btn btn-primary btn-xs" %>
+            </div>
+            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+              <dl>
+                <dt>DEPARTMENT:</dt>
+                <dd>Administrator</dd>
+                <dt>HIRE DATE</dt>
+                <dd>11/12/2013</dd>
+                <dt>DATE OF BIRTH</dt>
+                   <dd>11/12/2013</dd>
+                <dt>GENDER</dt>
+                <dd>Male</dd>
+              </dl>
+              </div>-->
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-bordered table-striped">
+                <tbody>
+                  <tr>
+                    <td>Status:</td>
+                    <td><%= @driver.internal_driver_status %></td>
+                  </tr>
+                  <tr>
+                    <td>Truck:</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Trailer:</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Status Updated On:</td>
+                    <td>
+                      <strong>
+                        
+                          <% if @driver.updated_by.blank? %> 
+                          Never Updated
+                          <% else %> 
+                          <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
+                          By: <%= @driver.updated_by %>
+                          <% end %> 
+                      </strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>DOB/AGE</td>
+                    <td>Was born on <%= @driver.dob.strftime("%B %-d, %Y") %> and is 
+                    <%= distance_of_time_in_words_to_now(@driver.dob, 
+                    only: :years) %> old</td>
+                  </tr>
+                  <tr>
+                    <td>Age</td>
+                    <td>01/24/1988</td>
+                  </tr>
+                  <tr>
+                    <td>Street Address</td>
+                    <td><%= @driver.street_address_1 %></td>
+                  </tr>
+                  <tr>
+                    <td>Street Address 2</td>
+                    <td><%= @driver.street_address_2 %></td>
+                  </tr>
+                  <tr>
+                    <td>City / State</td>
+                    <td><%= @driver.city %>, <%= @driver.state %></td>
+                  </tr>
+                  <tr>
+                    <td>ZIP Code</td>
+                    <td> <%= @driver.zip_code %></td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td><%= @driver.email %></td>
+                  </tr>
+                  <tr>
+                    <td>Telephone</td>
+                    <td><%= @driver.telephone %></td>
+                  </tr>
+                  <tr>
+                    <td>CDL #</td>
+                    <td><%= @driver.license_number %></td>
+                  </tr>
+                  <tr>
+                    <td>SSN</td>
+                    <td><%= @driver.social_number %></td>
+                  </tr>
+                  <tr>
+                    <td>Years of Experience</td>
+                    <td><%= @driver.years_of_experience %></td>
+                  </tr>
+                  <tr>
+                    <td>Has HazMat</td>
+                    <td><%= @driver.hazmat_model %></td>
+                  </tr>
+                  <tr>
+                    <td>Van</td>
+                    <td><%= @driver.dryvan_model %></td>
+                  </tr>
+                  <tr>
+                    <td>Reefer</td>
+                    <td><%= @driver.reefer_model %></td>
+                  </tr>
+                  <tr>
+                    <td>Flatbed / Stepdeck</td>
+                    <td><%= @driver.flatbed_model %></td>
+                  </tr>
+                  <tr>
+                    <td>PDF Document</td>
+                    <td>
+                      <% if @driver.pdf_url.present? %>
+                      <a href="<%= @driver.pdf_url(:pdf) %>"target="_blank">View PDF</a>
+                      <% else %>
+                      No File Uploaded
+                      <% end %>  
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <%= link_to "Edit", edit_driver_path(@driver),
+                class: "btn btn-primary btn-xs" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <label>More Info</label><br />
+  <p><%= @driver.info %></p>
+  <div class="row">
+    <div class="col-xs-4">
+      <label>License</label><br />
+      <% if @driver.license_image_url.present? %>
+      <%= image_tag @driver.license_image_url(:driver_application) %>
+      <% else %>
+      <%= image_tag('noimage.png') %>
+      <% end %>  
+    </div>
+    <div class="col-xs-4">
+      <label>SSN</label><br />
+      <% if @driver.social_image_url.present? %>
+      <p><%= image_tag @driver.social_image_url(:driver_application) %></p>
+      <% else %>
+      <%= image_tag('noimage.png') %>
+      <% end %> 
+    </div>
+    <div class="col-xs-4">
+      <label>Medical</label><br />
+      <% if @driver.medical_image_url.present? %>
+      <p><%= image_tag @driver.medical_image_url(:driver_application) %></p>
+      <% else %>
+      <%= image_tag('noimage.png') %>
+      <% end %>  
+    </div>
+  </div>
+</div>

@@ -28,6 +28,10 @@ gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'ma
 gem 'cancancan', '~> 1.15'
 gem 'dotiw', '~> 3.1', '>= 3.1.1'
 
+
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
