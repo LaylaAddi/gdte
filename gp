@@ -1,7 +1,7 @@
 git add -A
-git commit -m 'using own user update method'
+git commit -m 'test for sendgrid and aws'
 git push -u origin master 
-git push dokku master 
+git push heroku master 
 
 
  
