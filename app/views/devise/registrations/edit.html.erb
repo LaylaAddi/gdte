@@ -5,6 +5,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.select(:user_type, User.user_types.keys.map {|ut| [ut.titleize,ut]}) %>
+
+    
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :full_name, required: true %>
     <%= f.input :telephone, required: true %>

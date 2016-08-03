@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:user).permit(:password, 
                                    :password_confirmation,
-                                   :email, :role
+                                   :email, :user_type, :full_name,
                                    )
   end
 
@@ -38,9 +38,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :extention,
                                    :cellphone,
                                    :office_location, 
-                                   :role, 
-                                   driver_profile_attributes: [:years_of_experience]
-                                        )
+                                   :user_type
+                                  )
                               
   end
 end
