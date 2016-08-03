@@ -23,6 +23,7 @@ class UsersController < ApplicationController
       flash[:error] = "There was a problem" 
       render :edit  
     end
+  end
 
   
   private

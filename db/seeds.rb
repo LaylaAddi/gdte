@@ -78,7 +78,7 @@ end
 
 
 
-  100.times do
+  50.times do
   driver = Driver.create(full_name: FFaker::Name.name,
                       street_address_1: FFaker::Address.street_address,
                                   city: city.sample,
