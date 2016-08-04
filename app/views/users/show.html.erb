@@ -43,14 +43,6 @@
                     <td><%= @user.employment_status %></td>
                   </tr>
                   <tr>
-                    <td>Truck:</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Trailer:</td>
-                    <td></td>
-                  </tr>
-                  <tr>
                     <td>Status Updated On:</td>
                     <td>
                       <strong>
@@ -66,14 +58,15 @@
                   </tr>
                   <tr>
                     <td>DOB/AGE</td>
+                    <%if @user.dob.blank? %>
+                    <%= @user.first_name %> did not enter a Birth Date
+                    <% else %>
                     <td>Was born on <%= @user.dob.strftime("%B %-d, %Y") %> and is 
                     <%= distance_of_time_in_words_to_now(@user.dob, 
                     only: :years) %> old</td>
+                    <% end %>
                   </tr>
-                  <tr>
-                    <td>Age</td>
-                    <td>01/24/1988</td>
-                  </tr>
+
                   <tr>
                     <td>Street Address</td>
                     <td><%= @user.street_address_1 %></td>
@@ -99,42 +92,8 @@
                     <td><%= @user.telephone %></td>
                   </tr>
                   <tr>
-                    <td>CDL #</td>
-                    <td><%= @user.license_number %></td>
-                  </tr>
-                  <tr>
                     <td>SSN</td>
-                    <td><%= @user.social_number %></td>
-                  </tr>
-                  <tr>
-                    <td>Years of Experience</td>
-                    <td><%= @user.years_of_experience %></td>
-                  </tr>
-                  <tr>
-                    <td>Has HazMat</td>
-                    <td><%= @user.hazmat_model %></td>
-                  </tr>
-                  <tr>
-                    <td>Van</td>
-                    <td><%= @user.dryvan_model %></td>
-                  </tr>
-                  <tr>
-                    <td>Reefer</td>
-                    <td><%= @user.reefer_model %></td>
-                  </tr>
-                  <tr>
-                    <td>Flatbed / Stepdeck</td>
-                    <td><%= @user.flatbed_model %></td>
-                  </tr>
-                  <tr>
-                    <td>PDF Document</td>
-                    <td>
-                      <% if @user.pdf_url.present? %>
-                      <a href="<%= @user.pdf_url(:pdf) %>"target="_blank">View PDF</a>
-                      <% else %>
-                      No File Uploaded
-                      <% end %>  
-                    </td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -144,34 +103,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <label>More Info</label><br />
-  <p><%= @user.info %></p>
-  <div class="row">
-    <div class="col-xs-4">
-      <label>License</label><br />
-      <% if @user.license_image_url.present? %>
-      <%= image_tag @user.license_image_url(:user_application) %>
-      <% else %>
-      <%= image_tag('noimage.png') %>
-      <% end %>  
-    </div>
-    <div class="col-xs-4">
-      <label>SSN</label><br />
-      <% if @user.social_image_url.present? %>
-      <p><%= image_tag @user.social_image_url(:user_application) %></p>
-      <% else %>
-      <%= image_tag('noimage.png') %>
-      <% end %> 
-    </div>
-    <div class="col-xs-4">
-      <label>Medical</label><br />
-      <% if @user.medical_image_url.present? %>
-      <p><%= image_tag @user.medical_image_url(:user_application) %></p>
-      <% else %>
-      <%= image_tag('noimage.png') %>
-      <% end %>  
     </div>
   </div>
 </div>

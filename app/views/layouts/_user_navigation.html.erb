@@ -51,7 +51,7 @@
               <%= current_user.full_name if current_user %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Edit My Profile", edit_user_registration_path if current_user %></li>
-              <li><a href="#">Another action</a></li>
+              <li><%= link_to "Update My Password", edit_user_password_path if current_user %></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "End My Session", destroy_user_session_path,

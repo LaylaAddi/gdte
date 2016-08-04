@@ -71,14 +71,9 @@ module Dropdown
   
   OfficeLocation =  
   [
-    "pending",
-    "approved",
-    "declined",
-    "active",
-    "sick_leave",
-    "suspended",
-    "vacation",
-    "fired"
+    "chicago",
+    "dallas",
+    "sofiia"
   ]     
     
     UserType =

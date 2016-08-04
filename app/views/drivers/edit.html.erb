@@ -6,7 +6,7 @@
 
   <%= f.error_notification %>
   <div class="form-inputs">
-    <%= f.input :employment_status, collection: Driver::E, label: "Internal Status", required: true %>
+    <%= f.input :employment_status, collection: Driver::EmploymentStatus, label: "Internal Status", required: true %>
     <%= f.input :email, required: true %>
     <%= f.input :updated_by, input_html:{ :value => @user.full_name }, as: :hidden %>
 

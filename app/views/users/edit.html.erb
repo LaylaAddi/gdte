@@ -1,25 +1,30 @@
-  <h2>Editing Driver <%= @user.full_name %></h2>
+
   
   <div class="container">
-<h2><%= @user.first_name %>'s Account Settings</h2>
-
+  <h2>Editing Driver <%= @user.full_name %></h2>
 <%= simple_form_for @user do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
 
 
-    
     <%= f.input :first_name, required: true, autofocus: true %>
     <%= f.input :last_name, required: true %>
     <%= f.input :email, required: true %>
     <%= f.input :telephone, required: true %>
+    <%= f.input :cellphone, required: true %>
+    <%= f.input :extention, required: true %>
     <%= f.input :street_address_1, required: true %>
     <%= f.input :street_address_2, required: true %>
     <%= f.input :city, required: true %>
     <%= f.input :state, collection: Driver::States, label: "Select State", required: true %>
     <%= f.input :zip_code, required: true %>
     <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
+    <%= f.input :state, collection: Driver::OfficeLocation, label: "Office", required: true %>
+    <%= f.input :e_contact_name, required: true, label: false, placeholder: "Emergency Contact's Name" %>
+    <%= f.input :e_contact_number, required: true, label: false, placeholder: "Emergency Contact's Telephone" %>    
+
+
     
 
     

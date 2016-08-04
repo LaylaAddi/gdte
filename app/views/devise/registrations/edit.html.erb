@@ -12,15 +12,18 @@
     <%= f.input :last_name, required: true %>
     <%= f.input :email, required: true %>
     <%= f.input :telephone, required: true %>
+    <%= f.input :cellphone, required: true %>
+    <%= f.input :extention, required: true %>
     <%= f.input :street_address_1, required: true %>
     <%= f.input :street_address_2, required: true %>
     <%= f.input :city, required: true %>
     <%= f.input :state, collection: Driver::States, label: "Select State", required: true %>
     <%= f.input :zip_code, required: true %>
     <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
+    <%= f.input :state, collection: Driver::OfficeLocation, label: "Office", required: true %>
     <%= f.input :e_contact_name, required: true, label: false, placeholder: "Emergency Contact's Name" %>
     <%= f.input :e_contact_number, required: true, label: false, placeholder: "Emergency Contact's Telephone" %>    
-    
+
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
