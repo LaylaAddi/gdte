@@ -4,7 +4,8 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :full_name
+      t.string :first_name
+      t.string :last_name
       t.string :telephone
       t.string :street_address_1
       t.string :street_address_2
@@ -26,8 +27,10 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.boolean :flatbed, default: false
       t.date :dob
       t.string :pdf
-      t.integer :internal_driver_status, default: 0, null: false
+      t.string :employment_status, default: "pending" 
       t.string :updated_by
+      t.string :emergency_name
+      t.string :emergency_telephone
 
       ## Recoverable
       t.string   :reset_password_token

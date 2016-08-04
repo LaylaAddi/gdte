@@ -1,15 +1,17 @@
 <div class="container">
+
   <h2>Editing Driver <%= @driver.full_name %></h2>
-   
+
   <%= simple_form_for(@driver) do |f| %>
- f.hidden_field :customer_id, :value => @customer.id 
+
   <%= f.error_notification %>
   <div class="form-inputs">
-    <%= f.input :internal_driver_status, collection: Driver::IDS, label: "Internal Status", required: true %>
+    <%= f.input :employment_status, collection: Driver::E, label: "Internal Status", required: true %>
     <%= f.input :email, required: true %>
-    <%= f.input :updated_by, input_html:{ value: @user.full_name }, as: :hidden %>
+     <%= f.input :updated_by, input_html:{ :value => @user.full_name }, as: :hidden %>
 
-    <%= f.input :full_name, required: true, autofocus: true %>
+    <%= f.input :first_name, required: true %>
+    <%= f.input :last_name, required: true %>
     <%= f.input :telephone, required: true %>
     <%= f.input :street_address_1, required: true %>
     <%= f.input :street_address_2, required: true %>
@@ -48,4 +50,5 @@
   </div>
   <% end %>
   <%= link_to "Back", :back %>
+
 </div>

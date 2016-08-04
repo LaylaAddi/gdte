@@ -3,6 +3,7 @@ class DriversController < ApplicationController
   before_action :set_the_user, only: [:show, :edit, :update, :destroy, :index]
 
 
+
  
   def dashboard
    
@@ -10,8 +11,9 @@ class DriversController < ApplicationController
   end
   
   def index
-    if params[:internal_driver_status]
-      @drivers = Driver.where(internal_driver_status: params[:internal_driver_status]).page(params[:page]).per(15)
+    if params[:employment_status] 
+      @drivers = Driver.where(internal_driver_status: params[:employment_status]).page(params[:page]).per(15)
+
     else
       @drivers = Driver.all.page(params[:page]).per(15)
     end
@@ -27,6 +29,7 @@ class DriversController < ApplicationController
  
 
   def edit
+ 
   end
   
   def update
@@ -88,7 +91,7 @@ class DriversController < ApplicationController
                                      :flatbed,
                                      :dob,
                                      :pdf,
-                                     :internal_driver_status,
+                                     :employment_status,
                                      :updated_by
                                       )
     end

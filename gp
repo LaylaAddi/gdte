@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'sendgrid testing'
+git commit -m 'allow_iframe_requests'
 git push -u origin master 
 git push heroku master 
 

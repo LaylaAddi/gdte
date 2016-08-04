@@ -1,7 +1,9 @@
 <div class="container">
-<h1><%= @user.full_name %>'s Dashboard</h1>
 
-
+<%= render "users/partials/user_dash" if @user.user_type == "user" %> 
+<%= render "users/partials/admin_dash" if @user.user_type == "admin" %>
+<%= render "users/partials/dispatcher_dash" if @user.user_type == "dispatcher" %>
+<%= render "users/partials/office_dash" if @user.user_type == "office"%> 
 
 
 

@@ -4,7 +4,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :full_name
+      t.string :first_name
+      t.string :last_name
       t.string :telephone
       t.string :extention
       t.string :cellphone
@@ -15,8 +16,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :state
       t.string :zip_code
-      t.integer :user_type, default: 0, null: false 
-
+      t.string :user_type, default: "registered"
+      t.string :employment_status, default: "pending"
+      t.string :updated_by
+      t.string :emergency_name
+      t.string :emergency_telephone
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

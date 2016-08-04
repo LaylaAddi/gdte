@@ -15,7 +15,8 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :full_name,
                                    :telephone,
                                    :cellphone,
-                                   :full_name,
+                                   :first_name,
+                                   :last_name
                                    )
   end
 
@@ -29,7 +30,6 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :city, 
                                    :state,
                                    :zip_code,                                   
-                                   :full_name,
                                    :telephone,
                                    :license_number,
                                    :license_image,
@@ -44,7 +44,9 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :flatbed,
                                    :dob,
                                    :pdf,
-                                   :internal_driver_status
+                                   :employment_status,
+                                   :first_name,
+                                   :last_name
                                   )
                               
   end

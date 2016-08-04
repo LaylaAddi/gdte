@@ -1,7 +1,7 @@
-module States
+module Dropdown
   extend ActiveSupport::Concern
   
- STATES =
+ States =
       [
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
@@ -57,6 +57,37 @@ module States
       ['Wyoming', 'WY']
       ]
       
+    EmploymentStatus =
+  [
+    "pending",
+    "approved",
+    "declined",
+    "active",
+    "sick_leave",
+    "suspended",
+    "vacation",
+    "fired"
+  ] 
   
+  OfficeLocation =  
+  [
+    "pending",
+    "approved",
+    "declined",
+    "active",
+    "sick_leave",
+    "suspended",
+    "vacation",
+    "fired"
+  ]     
+    
+    UserType =
+  [ "registered",
+    "office",
+    "dispatch",
+    "admin"
+  ]      
+    
+
 end
   

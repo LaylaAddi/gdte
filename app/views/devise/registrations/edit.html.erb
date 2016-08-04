@@ -1,20 +1,21 @@
 <div class="container">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= @user.first_name %>'s Account Settings</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.select(:user_type, User.user_types.keys.map {|ut| [ut.titleize,ut]}) %>
+
 
     
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :full_name, required: true %>
+    <%= f.input :first_name, required: true, autofocus: true %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :email, required: true %>
     <%= f.input :telephone, required: true %>
     <%= f.input :street_address_1, required: true %>
     <%= f.input :street_address_2, required: true %>
     <%= f.input :city, required: true %>
-    <%= f.input :state, collection: Driver::STATES, label: "Select State", required: true %>
+    <%= f.input :state, collection: Driver::States, label: "Select State", required: true %>
     <%= f.input :zip_code, required: true %>
     <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
     
@@ -33,9 +34,11 @@
   </div>
 <% end %>
 
+<% if current_user.user_type == 'admin' %>
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
 </div>
+<% end %> 

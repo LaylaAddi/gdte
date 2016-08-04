@@ -39,26 +39,30 @@
               <table class="table table-bordered table-striped">
                 <tbody>
                   <tr>
-                    <td>Status:</td>
-                    <td><%= @driver.internal_driver_status %></td>
+                    <td>Status</td>
+                    <td><%= @driver.employment_status.titleize %></td>
                   </tr>
                   <tr>
-                    <td>Truck:</td>
-                    <td></td>
+                    <td>Dispatcher</td>
+                    <td><%= link_to "!missing_function!", "#" %></td>
                   </tr>
                   <tr>
-                    <td>Trailer:</td>
-                    <td></td>
+                    <td>Truck</td>
+                    <td><%= link_to "!missing_function!", "#" %></td>
                   </tr>
                   <tr>
-                    <td>Status Updated On:</td>
+                    <td>Trailer</td>
+                    <td><%= link_to "!missing_function!", "#" %></td>
+                  </tr>
+                  <tr>
+                    <td>Status Updated On</td>
                     <td>
                       <strong>
                         
                           <% if @driver.updated_by.blank? %> 
                           Never Updated
                           <% else %> 
-                          <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
+                          <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %><br />
                           By: <%= @driver.updated_by %>
                           <% end %> 
                       </strong>
@@ -71,10 +75,6 @@
                     only: :years) %> old</td>
                   </tr>
                   <tr>
-                    <td>Age</td>
-                    <td>01/24/1988</td>
-                  </tr>
-                  <tr>
                     <td>Street Address</td>
                     <td><%= @driver.street_address_1 %></td>
                   </tr>
@@ -83,7 +83,7 @@
                     <td><%= @driver.street_address_2 %></td>
                   </tr>
                   <tr>
-                    <td>City / State</td>
+                    <td>City/State</td>
                     <td><%= @driver.city %>, <%= @driver.state %></td>
                   </tr>
                   <tr>
@@ -96,6 +96,10 @@
                   </tr>
                   <tr>
                     <td>Telephone</td>
+                    <td><%= @driver.telephone %></td>
+                  </tr>
+                  <tr>
+                    <td>Cellular</td>
                     <td><%= @driver.telephone %></td>
                   </tr>
                   <tr>
@@ -115,15 +119,15 @@
                     <td><%= @driver.hazmat_model %></td>
                   </tr>
                   <tr>
-                    <td>Van</td>
+                    <td>Has Van Experience</td>
                     <td><%= @driver.dryvan_model %></td>
                   </tr>
                   <tr>
-                    <td>Reefer</td>
+                    <td>Has Reefer Experience</td>
                     <td><%= @driver.reefer_model %></td>
                   </tr>
                   <tr>
-                    <td>Flatbed / Stepdeck</td>
+                    <td>Has Flatbed/Stepdeck Experience</td>
                     <td><%= @driver.flatbed_model %></td>
                   </tr>
                   <tr>

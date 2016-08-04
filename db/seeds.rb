@@ -1,19 +1,21 @@
 
-  ids =
-  [ 0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-    ]
-    
+ 
+    es =
+  [
+    "pending",
+    "approved",
+    "declined",
+    "active",
+    "sick_leave",
+    "suspended",
+    "vacation",
+    "fired"
+    ]       
     user_type =
-  [ 0,
-    1,
-    2,
-    3
+  [ "registered",
+    "office",
+    "dispatch",
+    "admin"
     ]  
   
   city =
@@ -67,19 +69,27 @@
     
 20.times do
   user = User.create(
-  full_name: FFaker::Name.name,
+  first_name: FFaker::Name.first_name,
+  last_name: FFaker::Name.last_name,
   telephone: FFaker::PhoneNumber.phone_number,
   email: FFaker::Internet.email, 
   password: "password", 
   password_confirmation: "password",
-  user_type: user_type.sample)
+  user_type: user_type.sample,
+  street_address_1: FFaker::Address.street_address,
+  city: city.sample,
+  zip_code: FFaker::AddressUS.zip_code,
+  cellphone: FFaker::PhoneNumber.phone_number,
+  employment_status: es.sample
+  )
   puts  user.inspect
 end
 
 
 
-  50.times do
-  driver = Driver.create(full_name: FFaker::Name.name,
+  20.times do
+  driver = Driver.create(first_name: FFaker::Name.first_name,
+                          last_name: FFaker::Name.last_name,
                       street_address_1: FFaker::Address.street_address,
                                   city: city.sample,
                               zip_code: FFaker::AddressUS.zip_code,
@@ -100,7 +110,7 @@ end
                           medical_image: open("app/assets/images/fake_image/med/#{rand(1..5)}.jpg"),
                               password: "password", 
                   password_confirmation: "password",
-                internal_driver_status: ids.sample
+                employment_status: es.sample
                         )
                                          
   puts driver.inspect

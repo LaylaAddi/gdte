@@ -1,10 +1,19 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user_id, except: [:dashboard]
+  before_action :set_user_id, except: [:dashboard, :index]
  
   def dashboard
     @user = current_user
   end
+  
+  def index
+    if params[:employment_status]
+      @users = User.where(employment_status: params[:employment_status]).page(params[:page]).per(15)
+
+    else
+      @users = User.all.page(params[:page]).per(15)
+    end
+  end
+    
   
   def edit
     

@@ -6,7 +6,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:user).permit(:password, 
                                    :password_confirmation,
-                                   :email, :user_type, :full_name,
+                                   :email, 
+                                   :user_type, 
+                                   :first_name, 
+                                   :last_name,
+                                   :street_address_1,
+                                   :street_address_2,
+                                   :city, 
+                                   :state,
+                                   :zip_code,                                   
+                                   :homephone,
+                                   :dob,
+                                   :cellphone
+   
                                    )
   end
 
@@ -20,7 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :city, 
                                    :state,
                                    :zip_code,                                   
-                                   :full_name,
                                    :telephone,
                                    :license_number,
                                    :license_image,
@@ -35,10 +46,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :flatbed,
                                    :dob,
                                    :pdf,
+                                   :officephone,
+                                   :homephone,
                                    :extention,
                                    :cellphone,
                                    :office_location, 
-                                   :user_type
+                                   :user_type, 
+                                   :first_name, 
+                                   :last_name
                                   )
                               
   end
