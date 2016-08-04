@@ -8,7 +8,7 @@
   <div class="form-inputs">
     <%= f.input :employment_status, collection: Driver::E, label: "Internal Status", required: true %>
     <%= f.input :email, required: true %>
-     <%= f.input :updated_by, input_html:{ :value => @user.full_name }, as: :hidden %>
+    <%= f.input :updated_by, input_html:{ :value => @user.full_name }, as: :hidden %>
 
     <%= f.input :first_name, required: true %>
     <%= f.input :last_name, required: true %>
@@ -19,6 +19,8 @@
     <%= f.input :state, collection: Driver::STATES, label: "Select State", required: true %>
     <%= f.input :zip_code, required: true %>
     <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
+    <%= f.input :e_contact_name, required: true, label: false, placeholder: "Emergency Contact's Name" %>
+    <%= f.input :e_contact_number, required: true, label: false, placeholder: "Emergency Contact's Telephone" %>    
     <%= f.input :license_number, label: "License Number" %>
     <%= f.input :social_number, label: "Your SSN" %>
     

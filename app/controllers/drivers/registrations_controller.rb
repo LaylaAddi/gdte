@@ -46,7 +46,9 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :pdf,
                                    :employment_status,
                                    :first_name,
-                                   :last_name
+                                   :last_name,
+                                   :e_contact_name,
+                                   :e_contact_number                                   
                                   )
                               
   end

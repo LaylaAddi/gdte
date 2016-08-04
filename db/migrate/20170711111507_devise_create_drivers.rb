@@ -29,8 +29,8 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.string :pdf
       t.string :employment_status, default: "pending" 
       t.string :updated_by
-      t.string :emergency_name
-      t.string :emergency_telephone
+      t.string :e_contact_name
+      t.string :e_contact_number
 
       ## Recoverable
       t.string   :reset_password_token

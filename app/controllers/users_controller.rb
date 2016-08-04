@@ -66,7 +66,9 @@ class UsersController < ApplicationController
                                    :extention,
                                    :cellphone,
                                    :office_location, 
-                                   :user_type
+                                   :user_type,
+                                   :e_contact_name,
+                                   :e_contact_number
                                   )
   end
 end

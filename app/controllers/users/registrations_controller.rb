@@ -53,7 +53,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :office_location, 
                                    :user_type, 
                                    :first_name, 
-                                   :last_name
+                                   :last_name,
+                                   :e_contact_name,
+                                   :e_contact_number
                                   )
                               
   end

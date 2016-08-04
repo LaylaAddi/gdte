@@ -5,8 +5,18 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :full_name, required: true, autofocus: true %>
+    <%= f.input :first_name, required: true, autofocus: true %>
+    <%= f.input :last_name, required: true %>
     <%= f.input :email, required: true %>
+
+    <%= f.input :telephone, required: true %>
+    <%= f.input :street_address_1, required: true %>
+    <%= f.input :street_address_2, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :state, collection: Driver::STATES, label: "Select State", required: true %>
+    <%= f.input :zip_code, required: true %>
+    <%= f.input :dob, start_year: 1930, label: "Date Of Birth" %>
+
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
   </div>

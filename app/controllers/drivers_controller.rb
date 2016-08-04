@@ -92,8 +92,9 @@ class DriversController < ApplicationController
                                      :dob,
                                      :pdf,
                                      :employment_status,
-                                     :updated_by
+                                     :updated_by,
+                                     :e_contact_name
+                                     :e_contact_number
                                       )
     end
-
 end
