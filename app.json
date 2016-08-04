@@ -1,0 +1,14 @@
+{
+  "name": "gdte",
+  "description": "rake the db ohh yeah",
+  "keywords": [
+    "dokku",
+    "rails",
+    "rubyfleebie.com"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
