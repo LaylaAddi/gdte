@@ -93,7 +93,7 @@ class DriversController < ApplicationController
                                      :pdf,
                                      :employment_status,
                                      :updated_by,
-                                     :e_contact_name
+                                     :e_contact_name,
                                      :e_contact_number
                                       )
     end
