@@ -27,6 +27,7 @@ gem 'ffaker', '~> 2.2'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 gem 'cancancan', '~> 1.15'
 gem 'dotiw', '~> 3.1', '>= 3.1.1'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 
 

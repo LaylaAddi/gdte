@@ -87,7 +87,7 @@ end
 
 
 
-  20.times do
+  50.times do
   driver = Driver.create(first_name: FFaker::Name.first_name,
                           last_name: FFaker::Name.last_name,
                       street_address_1: FFaker::Address.street_address,

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     
-    if @user.update!(user_account_update_params)
+    if @user.update!(user_params)
       flash[:success] = "The user was updated"
       redirect_to @user
     else
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   private
   
   def set_user_id
-    @user = User.find(params[:id])
+    @user = current_user
   end
   
   def user_params
@@ -68,7 +68,9 @@ class UsersController < ApplicationController
                                    :office_location, 
                                    :user_type,
                                    :e_contact_name,
-                                   :e_contact_number
+                                   :e_contact_number,
+                                   :employment_status,
+                                   :updated_by
                                   )
   end
 end

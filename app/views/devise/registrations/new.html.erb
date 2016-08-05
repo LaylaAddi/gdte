@@ -1,23 +1,116 @@
 <div class="container">
-<h2>Office Sign up</h2>
-
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-success shadow" >
+      <div class="panel-heading">
+        <div class="panel-title">New Office/Dispatcher Sign Up</div>
+        <div style="float:right; font-size: 80%; position: relative; top:-30px">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+      <div style="padding-top:30px" class="panel-body" >
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-  
-    <%= f.input :user_type, collection: User::UserType, selected: "registered", as: :hidden %>
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :email, required: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+        <form id="loginform" class="form-horizontal" role="form">
+          <div class="row">
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <%= f.input :first_name, label: false, placeholder: "What's your first name?" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <%= f.input :last_name, label: false, placeholder: "What's your last name?" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <%= f.input :email, label: false, placeholder: "Enter Your Email" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
+                <%= f.input :cellphone, label: false, placeholder: "Telephone" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                <%= f.input :street_address_1, label: false, placeholder: "Street Address" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
+                <%= f.input :street_address_1, label: false, placeholder: "Additional address info (if any)" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                <%= f.input :city, label: false, placeholder: "City"%>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                <%= f.input :state, collection: Driver::States, label: false, placeholder: "State" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-map"></i></span>
+                <%= f.input :zip_code, label: false, placeholder: "What's Your Zip?"%>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
+                <%= f.input :dob, label: false,  placeholder: "Enter Your Birthday" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <%= f.input :password, required: true, label: false, placeholder: "Choose a password" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <%= f.input :password_confirmation, required: true, label: false, placeholder: "Confirm your password" %>
+              </div>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="checkbox">
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+          </div>
+          <div style="margin-top:10px" class="form-group">
+            <!-- Button -->
+            <div class="col-sm-12 controls">
+              <%= f.button :submit, "Register", class: "btn btn-success btn-3d" %>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
 </div>
+<% end %>
+<%= render "drivers/shared/links" %>
