@@ -1,12 +1,103 @@
 <div class="container">
-
-<%= render "users/partials/user_dash" if @user.user_type == "registered" %> 
-<%= render "users/partials/admin_dash" if @user.user_type == "admin" %>
-<%= render "users/partials/dispatcher_dash" if @user.user_type == "dispatcher" %>
-<%= render "users/partials/office_dash" if @user.user_type == "office"%> 
-
-
-
+  <h1><%= current_user.first_name %>'s Dashboard</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-3 ">
+        <br> 
+        <p class=" text-info">
+          <small>
+          Submitted on: 
+          <%= @user.created_at.strftime("%A %B %e, %Y")%>
+          Coordinated Universal Time (UTC)
+          </small>
+        </p>
+        <%= %>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= @user.full_name %></h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 " align="center">
+              </div>
+              <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-bordered table-striped">
+                  <tbody>
+                    <tr>
+                      <td>Status</td>
+                      <td><%= @user.employment_status.titleize %></td>
+                    </tr>
+                    <!--<tr>-->
+                    <!--  <td>Dispatcher</td>-->
+                    <!--  <td></td>-->
+                    <!--</tr>-->
+                    <tr>
+                      <td>Truck</td>
+                      <td><%= link_to "!missing_function!", "#" %></td>
+                    </tr>
+                    <tr>
+                      <td>Trailer</td>
+                      <td><%= link_to "!missing_function!", "#" %></td>
+                    </tr>
+                    <tr>
+                      <td>Status Updated On</td>
+                      <td>
+                        <strong>
+                        <% if @user.updated_by.blank? %> 
+                        Never Updated
+                        <% else %> 
+                        <%= @user.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %><br />
+                        By: <%= @user.updated_by %>
+                        <% end %> 
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                      <td>Street Address</td>
+                      <td><%= @user.street_address_1 %></td>
+                    </tr>
+                    <tr>
+                      <td>Street Address 2</td>
+                      <td><%= @user.street_address_2 %></td>
+                    </tr>
+                    <tr>
+                      <td>City/State</td>
+                      <td><%= @user.city %>, <%= @user.state %></td>
+                    </tr>
+                    <tr>
+                      <td>ZIP Code</td>
+                      <td> <%= @user.zip_code %></td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td><%= @user.email %></td>
+                    </tr>
+                    <tr>
+                      <td>Telephone</td>
+                      <td><%= @user.cellphone %></td>
+                    </tr>
+                      <tr>
+                      <td>Emergecny Contact Name</td>
+                      <td><%= @user.e_contact_name %></td>
+                    <tr>
+                      <td>Emergency Contact Number</td>
+                      <td><%= @user.e_contact_number %></td>
+                    </tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

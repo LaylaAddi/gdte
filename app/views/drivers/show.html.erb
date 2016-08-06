@@ -15,7 +15,7 @@
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
       <div class="panel panel-success">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= @driver.full_name %></h3>
+          <h3 class="panel-title">Viewing Driver  <%= @driver.full_name %></h3>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -23,18 +23,7 @@
                             <%= link_to "Edit", edit_driver_path(@driver),
                 class: "btn btn-primary btn-xs" %>
             </div>
-            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-              <dl>
-                <dt>DEPARTMENT:</dt>
-                <dd>Administrator</dd>
-                <dt>HIRE DATE</dt>
-                <dd>11/12/2013</dd>
-                <dt>DATE OF BIRTH</dt>
-                   <dd>11/12/2013</dd>
-                <dt>GENDER</dt>
-                <dd>Male</dd>
-              </dl>
-              </div>-->
+
             <div class=" col-md-9 col-lg-9 ">
               <table class="table table-bordered table-striped">
                 <tbody>
@@ -46,6 +35,14 @@
                     <td>Dispatcher</td>
                     <td><%= link_to "!missing_function!", "#" %></td>
                   </tr>
+                  <tr>
+                    <td>Last Check In</td>
+                    <td><%= link_to "!missing_function!", "#" %></td>
+                  </tr>
+                  <tr>
+                    <td>Current Dispatch Status</td>
+                    <td><%= link_to "!missing_function!", "#" %></td>
+                  </tr>                   
                   <tr>
                     <td>Truck</td>
                     <td><%= link_to "!missing_function!", "#" %></td>
@@ -130,6 +127,40 @@
                     <td>Has Flatbed/Stepdeck Experience</td>
                     <td><%= @driver.flatbed_model %></td>
                   </tr>
+                    <tr>
+                    <td>Driver License</td>
+                    <td>
+                      <% if @driver.license_image_url.present?%>
+                      <a href="<%= @driver.license_image_url(:driver_application_large) %>
+                      "target="_blank">View Driving License</a>
+                      <% else %>
+                      No File Uploaded
+                      <% end %>  
+                    </td>
+                  </tr>  
+                    <tr>
+                    <td>SSN</td>
+                    <td>
+                      <% if @driver.social_image_url.present? %>
+                      <a href="<%= @driver.social_image_url(:driver_application_large) %>
+                      "target="_blank">View SSN</a>
+                      <% else %>
+                      No File Uploaded
+                      <% end %>  
+                    </td>
+                  </tr>                    
+                  
+                    <tr>
+                    <td>Medical</td>
+                    <td>
+                      <% if @driver.medical_image_url.present? %>
+                      <a href="<%= @driver.medical_image_url(:driver_application_large) %>
+                      "target="_blank">View Medical Card</a>
+                      <% else %>
+                      No File Uploaded
+                      <% end %>  
+                    </td>
+                  </tr>                  
                   <tr>
                     <td>PDF Document</td>
                     <td>

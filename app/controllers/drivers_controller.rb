@@ -1,23 +1,24 @@
 class DriversController < ApplicationController
-  before_action :set_the_driver_by_id, only: [:show, :edit, :update, :destroy]
-  before_action :set_the_user, only: [:show, :edit, :update, :destroy, :index]
-
+  before_action :authenticate_user!, except: [:show, :dashboard] 
+  before_action :set_the_driver_by_id, except: [:dashboard, :index]
+  before_action :set_the_user, except: [:dashboard]
+  before_action :restrict_driver, except: [:show, :dashboard]
 
 
  
   def dashboard
-   
     @driver = current_driver
   end
   
   def index
     if params[:employment_status] 
-      @drivers = Driver.where(internal_driver_status: params[:employment_status]).page(params[:page]).per(15)
+      @drivers = Driver.where(employment_status: params[:employment_status]).page(params[:page]).per(15)
 
     else
       @drivers = Driver.all.page(params[:page]).per(15)
     end
   end
+  
   
 
   def new
@@ -29,7 +30,7 @@ class DriversController < ApplicationController
  
 
   def edit
- 
+  @driver = Driver.find(params[:id])
   end
   
   def update
@@ -65,6 +66,14 @@ class DriversController < ApplicationController
     def set_the_user
       @user = current_user
     end
+    
+  def restrict_driver
+    @driver = current_driver
+      if @driver
+      flash[:alert] = "#{@driver.first_name}, You are not allowed to view this resource"
+      redirect_to root_path
+    end
+  end    
   
     def driver_account_update_params
       params.require(:driver).permit(:password, 

@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170711111507) do
     t.string   "encrypted_password",     default: "",           null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "telephone"
+    t.string   "office_phone"
     t.string   "extention"
     t.string   "cellphone"
     t.date     "dob"

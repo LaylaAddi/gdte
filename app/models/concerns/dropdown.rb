@@ -71,9 +71,9 @@ module Dropdown
   
   OfficeLocation =  
   [
-    "chicago",
-    "dallas",
-    "sofiia"
+    "Chicago",
+    "Dallas",
+    "Sofiia"
   ]     
     
     UserType =

@@ -67,11 +67,59 @@
     "18",
     "22.5"]
     
-20.times do
+     admin = User.create(
+  first_name: "System",
+  last_name: "Admin",
+  office_phone: "716-986-4010",
+  email: "steve@chesnowitz.com", 
+  password: "password", 
+  password_confirmation: "password",
+  user_type: "admin",
+  street_address_1: "123 any street",
+  city: "Toronto",
+  zip_code: "N2H 6R4",
+  cellphone: "716-986-4010",
+  employment_status: "active",
+  extention: "123"
+  )
+  
+       office = User.create(
+  first_name: "Office",
+  last_name: "User",
+  office_phone: "716-986-4010",
+  email: "s.chesnowitz@gmail.com", 
+  password: "password", 
+  password_confirmation: "password",
+  user_type: "office",
+  street_address_1: "123 any street",
+  city: "Toronto",
+  zip_code: "N2H 6R4",
+  cellphone: "716-986-4010",
+  employment_status: "active",
+  extention: "123"
+  )
+  
+         office = User.create(
+  first_name: "Dispatch",
+  last_name: "User",
+  office_phone: "716-986-4010",
+  email: "steve@chesnowitz.com", 
+  password: "password", 
+  password_confirmation: "password",
+  user_type: "dispatch",
+  street_address_1: "123 any street",
+  city: "Toronto",
+  zip_code: "N2H 6R4",
+  cellphone: "716-986-4010",
+  employment_status: "active",
+  extention: "123"
+  )    
+    
+5.times do
   user = User.create(
   first_name: FFaker::Name.first_name,
   last_name: FFaker::Name.last_name,
-  telephone: FFaker::PhoneNumber.phone_number,
+  office_phone: "847-678-0600",
   email: FFaker::Internet.email, 
   password: "password", 
   password_confirmation: "password",
@@ -80,14 +128,15 @@
   city: city.sample,
   zip_code: FFaker::AddressUS.zip_code,
   cellphone: FFaker::PhoneNumber.phone_number,
-  employment_status: es.sample
+  employment_status: es.sample,
+  extention: "123"
   )
   puts  user.inspect
 end
 
 
 
-  50.times do
+  5.times do
   driver = Driver.create(first_name: FFaker::Name.first_name,
                           last_name: FFaker::Name.last_name,
                       street_address_1: FFaker::Address.street_address,

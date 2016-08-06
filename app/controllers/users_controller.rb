@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user_id, except: [:dashboard, :index]
- 
+  before_action :restrict_driver, except: [:show]
+  before_action :authenticate_user! 
+  
+  
   def dashboard
     @user = current_user
   end
@@ -8,16 +11,17 @@ class UsersController < ApplicationController
   def index
     if params[:employment_status]
       @users = User.where(employment_status: params[:employment_status]).page(params[:page]).per(15)
-
+    elsif params[:user_type]
+      @users = User.where(user_type: params[:user_type]).page(params[:page]).per(15)
     else
       @users = User.all.page(params[:page]).per(15)
-    end
+    end    
   end
     
   
   def edit
-    
   end
+
   
   def update
     if params[:user][:password].blank?
@@ -33,9 +37,21 @@ class UsersController < ApplicationController
       render :edit  
     end
   end
+  
+  def show
+    @user = User.find(params[:id])
+  end
 
   
   private
+  
+  def restrict_driver
+    @driver = current_driver
+      if @driver
+      flash[:alert] = "#{@driver.first_name}, You are not allowed to view this resource"
+      redirect_to root_path
+    end
+  end
   
   def set_user_id
     @user = current_user
@@ -49,7 +65,7 @@ class UsersController < ApplicationController
                                    :state,
                                    :zip_code,                                   
                                    :full_name,
-                                   :telephone,
+                                   :office_phone,
                                    :license_number,
                                    :license_image,
                                    :social_number,

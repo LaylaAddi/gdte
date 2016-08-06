@@ -4,13 +4,15 @@ class Driver < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include Dropdown      
-  validates_presence_of :first_name, :last_name   
+  # validates_presence_of :first_name, :last_name, :cellphone, :street_address_1,
+  # :city, :state, :zip_code, :dob
 
   mount_uploader :license_image, ImageUploader 
   mount_uploader :social_image, ImageUploader 
   mount_uploader :medical_image, ImageUploader
   mount_uploader :green_image, ImageUploader 
   mount_uploader :pdf, ImageUploader 
+
   
 
 
@@ -53,35 +55,10 @@ class Driver < ApplicationRecord
       return "No"
     end
   end  
+  
 
   
-  def pending
-    self.internal_driver_status == "pending" 
-  end
-  
-  def approved
-    self.internal_driver_status == "approved"
-  end
-  
-  def active
-    self.internal_driver_status == "active"
-  end  
-  
-  def vacation
-    self.internal_driver_status == "vacation"
-  end
-  
-  def suspended
-    self.internal_driver_status == "suspended"
-  end
-  
-  def declined
-    self.internal_driver_status == "declined"
-  end  
-  
-  def fired
-    self.internal_driver_status == "fired"
-  end   
+
     
   
   

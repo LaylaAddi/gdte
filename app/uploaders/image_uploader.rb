@@ -26,6 +26,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  
+    version :driver_application_large do
+    process :resize_to_fit => [800, 800]
+  end
 
   version :driver_application do
     process :resize_to_fit => [350, 180]

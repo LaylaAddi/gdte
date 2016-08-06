@@ -1,4 +1,30 @@
+
 <div class='container'>
+	<% if %>	
+	<% params[:employment_status] == "pending" %>
+	<h4>Pending Driver Applications</h4>
+	<% elsif %>
+	<% params[:employment_status] == "approved" %>
+	<h4>Approved.  Waiting for active status</h4>
+		<% elsif %>
+	<% params[:employment_status] == "active" %>
+	<h4>Active Drivers</h4>	
+		<% elsif %>
+	<% params[:employment_status] == "declined" %>
+	<h4>Declined Applications</h4>
+		<% elsif %>
+	<% params[:employment_status] == "suspended" %>
+	<h4>Suspended Drivers</h4>
+		<% elsif %>
+	<% params[:employment_status] == "vacation" %>
+	<h4>Drivers on vacation</h4>
+		<% elsif %>
+	<% params[:employment_status] == "fired" %>
+	<h4>Fired Drivers</h4>
+	<% elsif %>
+	<h4>All Drivers</h4>
+	<% end %>
+
 	<%= paginate @drivers %> 
 <table class="table table-bordered table-responsive">
 	<thead>
@@ -12,13 +38,13 @@
 		Employment Status <span class="caret"></span></button>
 <ul class="dropdown-menu" role="menu">
               
-  <li><%= link_to "Pending Approval", drivers_path(internal_driver_status: "pending") %></li>
-  <li><%= link_to "Approved", drivers_path(internal_driver_status: "approved") %></li>
-  <li><%= link_to "Active", drivers_path(internal_driver_status: "active") %></li>
-  <li><%= link_to "Declined", drivers_path(internal_driver_status: "declined") %></li>
-  <li><%= link_to "Suspended", drivers_path(internal_driver_status: "suspended") %></li>
-  <li><%= link_to "Vacation", drivers_path(internal_driver_status: "vacation") %></li>
-  <li><%= link_to "Fired", drivers_path(internal_driver_status: "fired") %></li>
+  <li><%= link_to "Pending Approval", drivers_path(employment_status: "pending") %></li>
+  <li><%= link_to "Approved", drivers_path(employment_status: "approved") %></li>
+  <li><%= link_to "Active", drivers_path(employment_status: "active") %></li>
+  <li><%= link_to "Declined", drivers_path(employment_status: "declined") %></li>
+  <li><%= link_to "Suspended", drivers_path(employment_status: "suspended") %></li>
+  <li><%= link_to "Vacation", drivers_path(employment_status: "vacation") %></li>
+  <li><%= link_to "Fired", drivers_path(employment_status: "fired") %></li> 
 <li class="divider"></li>
 <li><%= link_to "All Drivers", drivers_path %></li>
 </ul>

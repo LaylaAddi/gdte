@@ -16,13 +16,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= f.input :first_name, label: false, placeholder: "What's your first name?" %>
+                <%= f.input :first_name, label:"What's your first name?" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= f.input :last_name, label: false, placeholder: "What's your last name?" %>
+                <%= f.input :last_name, label:  "What's your last name?" %>
               </div>
             </div>
           </div>
@@ -30,13 +30,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <%= f.input :email, label: false, placeholder: "Enter Your Email" %>
+                <%= f.input :email, label:  "Enter Your Email" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                <%= f.input :cellphone, label: false, placeholder: "Telephone" %>
+                <%= f.input :cellphone, label:  "Telephone" %>
               </div>
             </div>
           </div>
@@ -44,13 +44,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <%= f.input :street_address_1, label: false, placeholder: "Street Address" %>
+                <%= f.input :street_address_1, label:  "Street Address" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
-                <%= f.input :street_address_1, label: false, placeholder: "Additional address info (if any)" %>
+                <%= f.input :street_address_2, label:  "Additional address info (if any)" %>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                <%= f.input :city, label: false, placeholder: "City"%>
+                <%= f.input :city, label: "City"%>
               </div>
             </div>
             <div class="col-sm-6">
@@ -72,28 +72,27 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map"></i></span>
-                <%= f.input :zip_code, label: false, placeholder: "What's Your Zip?"%>
+                <%= f.input :zip_code, label:  "What's Your Zip?"%>
               </div>
             </div>
             <div class="col-sm-6">
-              <div style="margin-bottom: 25px" class="input-group">
-                <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                <%= f.text_field :dob, placeholder: "Enter Your Birthday" %>
-              </div>
+
+                <%= f.text_field :dob %>
+
             </div>
           </div>
-          <div class="pad"></div>
+          
           <div class="row">
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <%= f.input :password, required: true, label: false, placeholder: "Choose a password" %>
+                <%= f.input :password, required: true, label:"Choose a password" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <%= f.input :password_confirmation, required: true, label: false, placeholder: "Confirm your password" %>
+                <%= f.input :password_confirmation, required: true, label:  "Confirm your password" %>
               </div>
             </div>
           </div>

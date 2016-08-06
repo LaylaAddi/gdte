@@ -4,7 +4,7 @@
       <div class="panel-heading">
         <div class="panel-title">Edit My Profile</div>
         <div style="float:right; font-size: 80%; position: relative; top:-30px">
-          <%= render "devise/shared/links" %>
+
         </div>
       </div>
       <div style="padding-top:30px" class="panel-body" >
@@ -16,13 +16,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= f.input :first_name, label: false, placeholder: "What's your first name?" %>
+                <%= f.input :first_name, label: "My First Name is" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= f.input :last_name, label: false, placeholder: "What's your last name?" %>
+                <%= f.input :last_name, label:  "My Last Name is"  %>
               </div>
             </div>
           </div>
@@ -30,13 +30,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <%= f.input :email, label: false, placeholder: "Enter Your Email" %>
+                <%= f.input :email, label: "My Email is" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                <%= f.input :cellphone, label: false, placeholder: "Telephone" %>
+                <%= f.input :cellphone, label: "My Cellphone number is" %>
               </div>
             </div>
           </div>
@@ -44,13 +44,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <%= f.input :street_address_1, label: false, placeholder: "Street Address" %>
+                <%= f.input :street_address_1, label:  "My Street Address" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
-                <%= f.input :street_address_2, label: false, placeholder: "Additional address info (if any)" %>
+                <%= f.input :street_address_2, label:  "My additional address info (if any)" %>
               </div>
             </div>
           </div>
@@ -58,13 +58,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                <%= f.input :city, label: false, placeholder: "City"%>
+                <%= f.input :city, label: "City"%>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
-                <%= f.input :state, collection: Driver::States, label: false, placeholder: "State" %>
+                <%= f.input :state, collection: Driver::States, label: "State", placeholder: "State" %>
               </div>
             </div>
           </div>
@@ -72,32 +72,31 @@
             <div class="col-sm-4">
               <div style="" class="">
                 <span class="input-group-addon"><i class="fa fa-map"></i></span>
-                <%= f.input :zip_code, label: false, placeholder: "What's Your Zip?"%>
-                <%= f.input(:years_of_experience, label: "Years of Commercial Driving Experience", 
+                <%= f.input :zip_code, label: "My Zip Code"%>
+                <%= f.input(:years_of_experience, label: "I have", 
                   input_html: { min: '0', step: '0.5', style: 'width: 100px'}) %> 
+                  <strong>years of Commercial Driving Experience</strong>
               </div>
             </div>
             <div class="col-sm-8">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                <%= f.input :dob, label: false,  placeholder: "Enter Your Birthday" %>
+                <%= f.input :dob, label: "My Birthday is on" %>
               </div>
             </div>
           </div>
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-          <% end %>
+
           <div class="row">
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
-                <%= f.input :license_number, label: false, placeholder: "What's Your Driver License Number?"%>
+                <%= f.input :license_number, label:  "My license number is"%>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file-o"></i></span>
-                <%= f.input :social_number, label: false, placeholder: "What's Your SSN?"%>
+                <%= f.input :social_number, label: "My SSN is"%>
               </div>
             </div>
           </div>
@@ -105,18 +104,19 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-ambulance"></i></span>
-                <%= f.input :e_contact_name, label: false, placeholder: "Who can we call in case of an emergency?" %>
+                <%= f.input :e_contact_name, label: "Please call (enter the persons name)" %>
+                <strong>case of an emergency</strong>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-hospital-o"></i></span>
-                <%= f.input :e_contact_number, label: false, placeholder: "What's their number?" %>
+                <%= f.input :e_contact_number, label: "their number is" %>
               </div>
             </div>
           </div>
           <%= f.input :info, label: false, 
-            placeholder: "Other information that may help us with your application"%> 
+            placeholder: "Other Info about me"%> 
           <div class="row">
             <div class="col-sm-4">
               <div style="margin-bottom: 25px" class="input-group">
@@ -158,7 +158,11 @@
           <%= f.input :reefer, 
             label: 'I like it cool, get me a Reefer.' %>
           <%= f.input :flatbed, 
-            label: 'Flatbed / Stepdeck' %> 
+            label: 'Flatbed / Stepdeck' %>
+            
+         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
           <div class="row">
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">

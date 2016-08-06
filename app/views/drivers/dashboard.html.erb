@@ -29,10 +29,10 @@
                       <td>Status</td>
                       <td><%= @driver.employment_status.titleize %></td>
                     </tr>
-                    <tr>
-                      <td>Dispatcher</td>
-                      <td><%= link_to "!missing_function!", "#" %></td>
-                    </tr>
+                    <!--<tr>-->
+                    <!--  <td>Dispatcher</td>-->
+                    <!--  <td></td>-->
+                    <!--</tr>-->
                     <tr>
                       <td>Truck</td>
                       <td><%= link_to "!missing_function!", "#" %></td>
@@ -55,11 +55,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>DOB/AGE</td>
-                      <td>Was born on <%= @driver.dob.strftime("%B %-d, %Y") %> and is 
-                        <%= distance_of_time_in_words_to_now(@driver.dob, 
-                          only: :years) %> old
-                      </td>
+
                     </tr>
                     <tr>
                       <td>Street Address</td>

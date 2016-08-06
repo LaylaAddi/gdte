@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :city, 
                                    :state,
                                    :zip_code,                                   
-                                   :homephone,
+                                   :office_phone,
                                    :dob,
                                    :cellphone
    
@@ -32,22 +32,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :city, 
                                    :state,
                                    :zip_code,                                   
-                                   :telephone,
-                                   :license_number,
-                                   :license_image,
-                                   :social_number,
-                                   :social_image,
-                                   :medical_image,
-                                   :years_of_experience,
-                                   :info,
-                                   :hazmat,         
-                                   :dryvan,
-                                   :reefer,
-                                   :flatbed,
+                                   :office_phone,
                                    :dob,
-                                   :pdf,
-                                   :officephone,
-                                   :homephone,
                                    :extention,
                                    :cellphone,
                                    :office_location, 
@@ -55,7 +41,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :first_name, 
                                    :last_name,
                                    :e_contact_name,
-                                   :e_contact_number
+                                   :e_contact_number,
+                                   :updated_by
                                   )
                               
   end
