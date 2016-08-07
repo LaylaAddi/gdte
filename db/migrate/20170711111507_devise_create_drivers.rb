@@ -31,6 +31,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.string :updated_by
       t.string :e_contact_name
       t.string :e_contact_number
+      t.text :driver_declined
 
       ## Recoverable
       t.string   :reset_password_token

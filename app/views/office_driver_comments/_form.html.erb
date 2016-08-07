@@ -1,0 +1,7 @@
+<%= simple_form_for ([@driver, @driver.office_driver_comments.build]) do |f| %> 
+
+<%= f.input :body, label: false, 
+placeholder: "Enter a note for Driver #{@driver.first_name} #{@driver.last_name }" %>
+<%= f.submit "Post your note", class: "btn btn-info btn-xs" %>
+
+<% end %>

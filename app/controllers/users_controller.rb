@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user_id, except: [:dashboard, :index]
+  before_action :set_user_id
   before_action :restrict_driver, except: [:show]
   before_action :authenticate_user! 
   
@@ -15,6 +15,10 @@ class UsersController < ApplicationController
       @users = User.where(user_type: params[:user_type]).page(params[:page]).per(15)
     else
       @users = User.all.page(params[:page]).per(15)
+    end    
+    if @current_user.user_type == "registered"
+      flash[:error] = "#{@user.first_name}, you are not currently able to perform that function."
+      redirect_to root_path
     end    
   end
     

@@ -3,7 +3,8 @@ class Driver < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  include Dropdown      
+  include Dropdown 
+  has_many :office_driver_comments, dependent: :destroy
   # validates_presence_of :first_name, :last_name, :cellphone, :street_address_1,
   # :city, :state, :zip_code, :dob
 

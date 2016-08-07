@@ -1,6 +1,10 @@
-<div class="container">
-  <h1><%= current_driver.first_name %>'s Dashboard</h1>
+
+  
   <div class="container">
+    <h2><%= current_driver.first_name %>'s Dashboard</h2><br /> 
+     <%= render "drivers/partials/driver_approved" if current_driver.employment_status == "approved" %>
+    <%= render "drivers/partials/driver_pending" if current_driver.employment_status == "pending" %>
+    <%= render "drivers/partials/driver_declined" if current_driver.employment_status == "declined" %>
     <div class="row">
       <div class="col-md-5 col-md-offset-3 ">
         <br> 

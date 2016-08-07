@@ -1,6 +1,14 @@
 class InitalSchema < ActiveRecord::Migration[5.0]
   def change
     
+    create_table :office_driver_comments do |t|
+      t.integer :user_id, index: true
+      t.integer :driver_id, index: true
+      t.text :body
+
+      t.timestamps
+    end    
+    
 
 
     # create_table :trucks do |t|

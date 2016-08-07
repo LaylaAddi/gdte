@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170711111507) do
     t.string   "updated_by"
     t.string   "e_contact_name"
     t.string   "e_contact_number"
+    t.text     "driver_declined"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -57,6 +58,16 @@ ActiveRecord::Schema.define(version: 20170711111507) do
     t.datetime "updated_at",                                 null: false
     t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "office_driver_comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "driver_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["driver_id"], name: "index_office_driver_comments_on_driver_id", using: :btree
+    t.index ["user_id"], name: "index_office_driver_comments_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

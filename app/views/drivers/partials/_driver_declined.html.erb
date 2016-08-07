@@ -1,0 +1,11 @@
+<h4>
+  Sorry <%= @driver.first_name %>, Your application with GD Trucking Express
+  has been declined.
+  
+  Please see the reasons below.
+
+</h4>
+  
+  <% if @driver.driver_declined.present? %>
+  <%= @driver.driver_declined %>
+  <% end %>

@@ -34,12 +34,13 @@ class DriversController < ApplicationController
   end
   
   def update
+    @driver = Driver.find(params[:id])
     if params[:driver][:password].blank?
       params[:driver].delete(:password)
       params[:driver].delete(:password_confirmation)
     end
     
-    if @driver.update!(driver_account_update_params)
+    if @driver.update(driver_account_update_params)
       flash[:success] = "The driver was updated"
       redirect_to @driver
     else
@@ -103,7 +104,8 @@ class DriversController < ApplicationController
                                      :employment_status,
                                      :updated_by,
                                      :e_contact_name,
-                                     :e_contact_number
+                                     :e_contact_number,
+                                     :driver_declined 
                                       )
     end
 end

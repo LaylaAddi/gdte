@@ -1,0 +1,9 @@
+<% if current_user.user_type == 'registered' %>
+<%= link_to "GD Trucking Express (registered user)", root_path, class: "navbar-brand" %>
+<% elsif current_user.user_type == 'dispatch' %>
+<%= link_to "GD Trucking Express (dispatch)", root_path, class: "navbar-brand" %>
+<% elsif current_user.user_type == 'office'%>
+<%= link_to "GD Trucking Express (office)", root_path, class: "navbar-brand" %> 
+<% elsif current_user.user_type == 'admin'%>
+<%= link_to "GD Trucking Express (admin)", root_path, class: "navbar-brand" %>
+<% end %>

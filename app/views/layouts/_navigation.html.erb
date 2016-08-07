@@ -1,5 +1,12 @@
-<%= render 'layouts/driver_navigation' if current_driver %>
-<%= render 'layouts/user_navigation' if current_user %>
+ <%= render 'layouts/driver_navigation' if driver_signed_in? && current_driver %>   
+  <%= render 'layouts/office_user_navigation'if user_signed_in? && current_user.user_type == 'registered' %>    
+ <%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.user_type == 'office' %>  
+ <%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.user_type == 'dispatch' %> 
+ <%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.user_type == 'admin' %>
+
+
+
+
 
 <% if !current_driver and !current_user %>
 <div id="header">

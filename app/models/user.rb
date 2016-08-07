@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   include Dropdown        
   validates_presence_of :first_name, :last_name 
-  
+  has_many :office_driver_comments, dependent: :destroy
   
  
   

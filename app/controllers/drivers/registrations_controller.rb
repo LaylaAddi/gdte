@@ -49,7 +49,8 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :first_name,
                                    :last_name,
                                    :e_contact_name,
-                                   :e_contact_number                                   
+                                   :e_contact_number,
+                                   :driver_declined 
                                   )
                               
   end
