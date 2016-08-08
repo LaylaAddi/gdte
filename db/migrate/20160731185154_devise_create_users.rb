@@ -16,11 +16,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :state
       t.string :zip_code
-      t.string :user_type, default: "registered"
-      t.string :employment_status, default: "pending"
       t.string :updated_by
       t.string :e_contact_name
       t.string :e_contact_number
+      t.boolean :dispatcher, default: false
+      t.boolean :office, default: false
+      t.boolean :registered, default: true
+      t.boolean :inactive, default: false
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

@@ -12,6 +12,7 @@
   </div>
 </div>
 <br />
+<% if @user.id == current_user.id%>
 <%= link_to "Edit Note", 
   edit_driver_office_driver_comment_path(office_driver_comment.driver, 
   office_driver_comment),  
@@ -19,3 +20,4 @@
 <%= link_to "Delete Note", [office_driver_comment.driver, 
   office_driver_comment], method: :delete, data: { confirm: "Are you sure?" },  
     class: "btn btn-info btn-xs round"  %>
+<% end %>    

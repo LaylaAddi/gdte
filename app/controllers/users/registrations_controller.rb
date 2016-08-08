@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:password, 
                                    :password_confirmation,
                                    :email, 
-                                   :user_type, 
                                    :first_name, 
                                    :last_name,
                                    :street_address_1,
@@ -17,7 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :zip_code,                                   
                                    :office_phone,
                                    :dob,
-                                   :cellphone
+                                   :cellphone,
+                                   :registered
    
                                    )
   end
@@ -42,7 +42,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    :last_name,
                                    :e_contact_name,
                                    :e_contact_number,
-                                   :updated_by
+                                   :updated_by,
+                                   :dispatcher,
+                                   :registered,
+                                   :office,
+                                   :inactive
                                   )
                               
   end

@@ -1,5 +1,9 @@
 <div class="container">
-   
+  <p><%= link_to "Show/Add Notes", "#", id: 'office-driver-notes-link' %></p>
+  <section id='office-notes-on-driver'>
+    <%= render @driver.office_driver_comments %>
+    <%= render 'office_driver_comments/form' %> 
+  </section>
   <div class="row">
     <div class="col-md-5 col-md-offset-3 ">
       <br> 
@@ -10,7 +14,6 @@
         Coordinated Universal Time (UTC)
         </small>
       </p>
-      
       <%= %>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-1" >
@@ -21,10 +24,9 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-md-3 col-lg-3 " align="center">
-                            <%= link_to "Edit", edit_driver_path(@driver),
+              <%= link_to "Edit", edit_driver_path(@driver),
                 class: "btn btn-primary btn-xs" %>
             </div>
-
             <div class=" col-md-9 col-lg-9 ">
               <table class="table table-bordered table-striped">
                 <tbody>
@@ -43,7 +45,7 @@
                   <tr>
                     <td>Current Dispatch Status</td>
                     <td><%= link_to "!missing_function!", "#" %></td>
-                  </tr>                   
+                  </tr>
                   <tr>
                     <td>Truck</td>
                     <td><%= link_to "!missing_function!", "#" %></td>
@@ -56,30 +58,30 @@
                     <td>Status Updated On</td>
                     <td>
                       <strong>
-                        
-                          <% if @driver.updated_by.blank? %> 
-                          Never Updated
-                          <% else %> 
-                          <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %><br />
-                          <% end %> 
+                      <% if @driver.updated_by.blank? %> 
+                      Never Updated
+                      <% else %> 
+                      <%= @driver.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %><br />
+                      <% end %> 
                       </strong>
                     </td>
                   </tr>
                   <tr>
                     <td>Updated By</td>
                     <td>                          
-                    <% if @driver.updated_by.blank? %> 
-                          Never Updated
-                    <% else %> 
-                    <strong><%= @driver.updated_by %></strong>
-                    <% end %> 
+                      <% if @driver.updated_by.blank? %> 
+                      Never Updated
+                      <% else %> 
+                      <strong><%= @driver.updated_by %></strong>
+                      <% end %> 
                     </td>
-                  </tr>                  
+                  </tr>
                   <tr>
                     <td>DOB/AGE</td>
                     <td>Was born on <%= @driver.dob.strftime("%B %-d, %Y") %> and is 
-                    <%= distance_of_time_in_words_to_now(@driver.dob, 
-                    only: :years) %> old</td>
+                      <%= distance_of_time_in_words_to_now(@driver.dob, 
+                        only: :years) %> old
+                    </td>
                   </tr>
                   <tr>
                     <td>Street Address</td>
@@ -137,40 +139,39 @@
                     <td>Has Flatbed/Stepdeck Experience</td>
                     <td><%= @driver.flatbed_model %></td>
                   </tr>
-                    <tr>
+                  <tr>
                     <td>Driver License</td>
                     <td>
                       <% if @driver.license_image_url.present?%>
                       <a href="<%= @driver.license_image_url(:driver_application_large) %>
-                      "target="_blank">View Driving License</a>
+                        "target="_blank">View Driving License</a>
                       <% else %>
                       No File Uploaded
                       <% end %>  
                     </td>
-                  </tr>  
-                    <tr>
+                  </tr>
+                  <tr>
                     <td>SSN</td>
                     <td>
                       <% if @driver.social_image_url.present? %>
                       <a href="<%= @driver.social_image_url(:driver_application_large) %>
-                      "target="_blank">View SSN</a>
+                        "target="_blank">View SSN</a>
                       <% else %>
                       No File Uploaded
                       <% end %>  
                     </td>
-                  </tr>                    
-                  
-                    <tr>
+                  </tr>
+                  <tr>
                     <td>Medical</td>
                     <td>
                       <% if @driver.medical_image_url.present? %>
                       <a href="<%= @driver.medical_image_url(:driver_application_large) %>
-                      "target="_blank">View Medical Card</a>
+                        "target="_blank">View Medical Card</a>
                       <% else %>
                       No File Uploaded
                       <% end %>  
                     </td>
-                  </tr>                  
+                  </tr>
                   <tr>
                     <td>PDF Document</td>
                     <td>
@@ -193,13 +194,6 @@
   </div>
   <label>More Info</label><br />
   <p><%= @driver.info %></p>
- <p><%= link_to "Show/Add Notes", "#", id: 'office-driver-notes-link' %></p> 
-  <section id='office-notes-on-driver'>
-  
-  <%= render @driver.office_driver_comments %>
-<%= render 'office_driver_comments/form' %> 
-</section>
-
   <div class="row">
     <div class="col-xs-4">
       <label>License</label><br />
@@ -227,7 +221,3 @@
     </div>
   </div>
 </div>
-
-
-
- 

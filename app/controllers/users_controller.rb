@@ -1,33 +1,48 @@
 class UsersController < ApplicationController
-  before_action :set_user_id
+  before_action do
+    if current_admin != nil 
+      :authenticate_admin! 
+    else 
+      :authenticate_user!
+    end
+  end
   before_action :restrict_driver, except: [:show]
-  before_action :authenticate_user! 
+
   
   
   def dashboard
     @user = current_user
   end
   
+  
   def index
-    if params[:employment_status]
-      @users = User.where(employment_status: params[:employment_status]).page(params[:page]).per(15)
-    elsif params[:user_type]
-      @users = User.where(user_type: params[:user_type]).page(params[:page]).per(15)
-    else
-      @users = User.all.page(params[:page]).per(15)
-    end    
-    if @current_user.user_type == "registered"
-      flash[:error] = "#{@user.first_name}, you are not currently able to perform that function."
-      redirect_to root_path
-    end    
+
+    if params[:registered]
+      @users = User.where(registered: true).page(params[:page]).per(15)
+    elsif
+       params[:dispatcher]
+        @users = User.where(dispatcher: true).page(params[:page]).per(15)
+    elsif
+       params[:office]
+        @users = User.where(office: true).page(params[:page]).per(15)
+    elsif
+       params[:inactive]
+        @users = User.where(inactive: true).page(params[:page]).per(15)          
+    else      
+      @users = User.all.page(params[:page]).per(15)  
+    end
   end
     
   
   def edit
+    @user = User.find(params[:id])
   end
+    
+
 
   
   def update
+    @user = User.find(params[:id])
     if params[:user][:password].blank?
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
@@ -48,6 +63,8 @@ class UsersController < ApplicationController
 
   
   private
+  
+
   
   def restrict_driver
     @driver = current_driver
@@ -86,11 +103,14 @@ class UsersController < ApplicationController
                                    :extention,
                                    :cellphone,
                                    :office_location, 
-                                   :user_type,
                                    :e_contact_name,
                                    :e_contact_number,
                                    :employment_status,
-                                   :updated_by
+                                   :updated_by,
+                                   :dispatcher,
+                                   :registered,
+                                   :office,
+                                   :inactive
                                   )
   end
-end
+end 

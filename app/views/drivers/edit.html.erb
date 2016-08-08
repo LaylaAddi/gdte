@@ -1,4 +1,4 @@
-<% if @user.user_type == 'admin' %>
+<% if @admin %>
 <%= render 'drivers/partials/admin_driver_edit' %>
 <% elsif @user.user_type == 'office' %>
 <%= render 'drivers/partials/office_driver_edit' %>

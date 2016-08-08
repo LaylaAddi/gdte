@@ -1,61 +1,26 @@
 <div class='container'>
-	<% if %>	
-	<% params[:user_type] == "office" %>
-	<h4>Office Employees</h4>
-	<% elsif %>
-	<% params[:user_type] == "dispatch" %>
-	<h4>Dispatchers</h4>
-	<% elsif %>
-	<% params[:user_type] == "registered"  %>   
-	<h4>Waiting for assignment</h4>
-	<% elsif %>	
-	
-	<h4></h4>
-	<% end %>
-	
-	<% if %>	
-	<% params[:employment_status] == "pending" %>
-	<h4>Pending and waiting for a status update</h4>
-	<% elsif %>
-	<% params[:employment_status] == "approved" %>
-	<h4>Approved.  Waiting for active status and assignment</h4>
-	<% elsif %>
-	<% params[:employment_status] == "active" %>
-	<h4>Active Employees</h4>
-	<% elsif %>	
-	<% params[:employment_status] == "declined" %>
-	<h4>Application Declined</h4>
-	<% elsif %>
-	<% params[:employment_status] == "suspended" %>
-	<h4>Suspended Employees</h4>
-	<% elsif %>	
-	<% params[:employment_status] == "vacation" %>
-	<h4>Employees on vacation</h4>
-	<% elsif %>
-	<% params[:employment_status] == "fired" %>
-	<h4>Fired Employees</h4>
-	<% params[:employment_status] == "sick_leave" %>
-	<h4>Off Sick</h4>	
-	<% elsif %>
 
-	<% end %>
 	
 	<%= paginate @users %> 
 <table class="table table-bordered table-responsive">
 	<thead>
 		<tr>
 			<th>
-				User ID
+				Employee ID
 			</th>
+			<th>
+				Name
+			</th>			
 			<th>
 				<div class="btn-group">
 <button type="button" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown">
-		Office - Dispatch <span class="caret"></span></button>
+		Status <span class="caret"></span></button>
 <ul class="dropdown-menu" role="menu">
               
-              <li><%= link_to "Pending Approval", users_path(user_type: "registered") %></li>
-              <li><%= link_to "View Dispatchers", users_path(user_type: "dispatch") %></li>
-              <li><%= link_to "View Office", users_path(user_type: "office") %></li>
+<li><%= link_to "Registered", users_path(registered: true) %></li>
+<li><%= link_to "Dispatchers", users_path(dispatcher: true) %></li> 
+<li><%= link_to "Office Staff", users_path(office: true) %></li> 
+<li><%= link_to "Inactive Users", users_path(inactive: true) %></li> 
 
 <li class="divider"></li>
 <li><%= link_to "All Employees", users_path %></li>
@@ -63,38 +28,22 @@
 </div>
 			</th>			
 			<th>
-				<div class="btn-group">
-<button type="button" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown">
-		Employment Status <span class="caret"></span></button>
-<ul class="dropdown-menu" role="menu">
-              
-              <li><%= link_to "Pending Approval", users_path(employment_status: "pending") %></li>
-              <li><%= link_to "Approved", users_path(employment_status: "approved") %></li>
-              <li><%= link_to "Active", users_path(employment_status: "active") %></li>
-               <li><%= link_to "Off Sick", users_path(employment_status: "sick_leave") %></li>
-              <li><%= link_to "Declined", users_path(employment_status: "declined") %></li>
-              <li><%= link_to "Suspended", users_path(employment_status: "suspended") %></li>
-              <li><%= link_to "Vacation", users_path(employment_status: "vacation") %></li> 
-              <li><%= link_to "Fired", users_path(employment_status: "fired") %></li>
-<li class="divider"></li>
-<li><%= link_to "All Employees", users_path %></li>
-</ul>
-</div>
+Office
 			</th>
 			<th>
-				Office
+					Email
 			</th>
 			<th>
-				Email
-			</th>
-			<th>
-				Telephone
+			Telephone
 			</th>
 			<th>
 				Extention
 			</th>
 			<th>
 				Cellphone
+			</th>
+			<th>
+				
 			</th>
 			<th>
 		  
@@ -111,12 +60,12 @@
 			</td>
 			<td>
 				<%= link_to user do %>
-				<%= user.user_type %>
+					<%= user.first_name %> <%= user.last_name %>
 				<% end %>
 			</td>
 			<td>
 				<%= link_to user do %>
-				<%= user.employment_status %>
+				<%= user.model_user_status %>
 				<% end %>
 			</td>
 			<td>

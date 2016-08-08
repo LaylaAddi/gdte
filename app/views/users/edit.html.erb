@@ -1,5 +1,5 @@
 <div class='container'>
-<% if @user.user_type == 'admin' %>
+<% if current_admin %>
 <%= render 'users/partials/admin_user_edit' %>
 <% else %>
 

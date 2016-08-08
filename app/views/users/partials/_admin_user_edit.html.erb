@@ -1,9 +1,15 @@
-<h2>Editing User <%= @user.full_name %></h2>
+<h2>Editing User <%= @user.first_name %> <%= @user.last_name %></h2> 
   <%= simple_form_for @user do |f| %>
   <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
     <div class="panel panel-success shadow" >
       <div class="panel-heading">
-        <div class="panel-title">Edit My Profile</div>
+        <div class="panel-title"><%= f.input :office_location, 
+        collection: User::OfficeLocation, label: "Office Location", required: true %>
+        <%= f.input :dispatcher %>
+        <%= f.input :office  %>
+        <%= f.input :inactive %>
+        <%= f.input :registered %>
+        </div>
         <div style="float:right; font-size: 80%; position: relative; top:-30px">
         </div>
       </div>
@@ -14,8 +20,10 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= f.input :employment_status, collection: User::EmploymentStatus, label: "Internal Status", required: true %>
-                 <%= f.input :office_location, collection: User::OfficeLocation, label: "Office Location", required: true %>
+
+
+              
+                 
                 <%= f.input :first_name, label: false, placeholder: "What's your first name?" %>
               </div>
             </div>

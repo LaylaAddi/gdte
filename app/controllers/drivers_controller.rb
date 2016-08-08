@@ -1,7 +1,9 @@
 class DriversController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :dashboard] 
+  # before_action :authenticate_user!, except: [:show, :dashboard] 
+  # before_action :authenticate_admin!
   before_action :set_the_driver_by_id, except: [:dashboard, :index]
   before_action :set_the_user, except: [:dashboard]
+  before_action :set_the_admin  
   before_action :restrict_driver, except: [:show, :dashboard]
 
 
@@ -17,6 +19,10 @@ class DriversController < ApplicationController
     else
       @drivers = Driver.all.page(params[:page]).per(15)
     end
+    if user_signed_in? and current_user.registered? 
+      flash[:error] = "#{@user.first_name}, you are not able to perform that function."
+      redirect_to root_path
+    end        
   end
   
   
@@ -31,6 +37,7 @@ class DriversController < ApplicationController
 
   def edit
   @driver = Driver.find(params[:id])
+  @admin = current_admin 
   end
   
   def update
@@ -40,7 +47,7 @@ class DriversController < ApplicationController
       params[:driver].delete(:password_confirmation)
     end
     
-    if @driver.update(driver_account_update_params)
+    if @driver.update(driver_params)
       flash[:success] = "The driver was updated"
       redirect_to @driver
     else
@@ -64,9 +71,17 @@ class DriversController < ApplicationController
       @driver = Driver.find(params[:id])
     end
     
+    def set_the_admin
+      @admin = current_admin
+    end    
+    
     def set_the_user
       @user = current_user
     end
+
+    def set_the_admin
+      @admin = current_admin
+    end    
     
   def restrict_driver
     @driver = current_driver
@@ -76,7 +91,7 @@ class DriversController < ApplicationController
     end
   end    
   
-    def driver_account_update_params
+    def driver_params
       params.require(:driver).permit(:password, 
                                      :password_confirmation,
                                      :current_password,

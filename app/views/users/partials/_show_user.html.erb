@@ -15,10 +15,7 @@
       <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title"><%= @user.full_name %> 
-          Is in our <%= @user.user_type.titleize %> Department
-          <% if @user.office_location.present? %>
-          and is located in <%= @user.office_location.titleize %>
-          <% end %>
+
           </h3>
         </div>
         <div class="panel-body">
@@ -33,7 +30,7 @@
                 <tbody>
                   <tr>
                     <td>Status:</td>
-                    <td><%= @user.employment_status %></td>
+                    <td><%= @user.model_user_status %></td>
                   </tr>
                   <tr>
                     <td>Status Updated On:</td>
@@ -52,13 +49,18 @@
                   <tr>
                     <td>DOB/AGE</td>
                     <%if @user.dob.blank? %>
-                    <%= @user.first_name %> did not enter a Birth Date
+                    <td><%= @user.first_name %> did not enter a Birth Date</td>
                     <% else %>
                     <td>Was born on <%= @user.dob.strftime("%B %-d, %Y") %> and is 
                     <%= distance_of_time_in_words_to_now(@user.dob, 
                     only: :years) %> old</td>
                     <% end %>
                   </tr>
+                    <td>Office</td>
+                     <% if @user.office_location.present? %>
+                    <td><%= @user.office_location.titleize %> </td>
+                    <% end %>
+                  </tr>                  
 
                   <tr>
                     <td>Street Address</td>

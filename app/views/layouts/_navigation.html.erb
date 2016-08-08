@@ -1,14 +1,13 @@
- <%= render 'layouts/driver_navigation' if driver_signed_in? && current_driver %>   
-  <%= render 'layouts/office_user_navigation'if user_signed_in? && current_user.user_type == 'registered' %>    
- <%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.user_type == 'office' %>  
- <%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.user_type == 'dispatch' %> 
- <%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.user_type == 'admin' %>
+<%= render 'layouts/driver_navigation' if driver_signed_in? && current_driver %>   
+<%= render 'layouts/office_user_navigation'if user_signed_in? && current_user.registered? %>    
+<%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.office? %>  
+<%= render 'layouts/office_user_navigation' if user_signed_in? && current_user.dispatcher? %> 
+<%= render 'layouts/admin_navigation' if admin_signed_in? && current_admin %>
 
 
 
 
-
-<% if !current_driver and !current_user %>
+<% if !current_driver and !current_user && !current_admin %>
 <div id="header">
   <nav class="nav-main" id="topNav">
     <div class="container-fluid">

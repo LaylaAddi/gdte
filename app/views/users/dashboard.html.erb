@@ -1,6 +1,6 @@
 <div class="container">
-  <h1><%= current_user.first_name %>'s Dashboard</h1>
-  <%= render "users/partials/registered_user_message" if current_user.user_type == "registered" %>
+  <h3><%= current_user.first_name %>'s Dashboard</h3>
+  <%= render "users/partials/registered_user_message" if current_user.registered? %>
   <div class="container">
     <div class="row">
       <div class="col-md-5 col-md-offset-3 ">
@@ -28,20 +28,13 @@
                   <tbody>
                     <tr>
                       <td>Status</td>
-                      <td><%= @user.employment_status.titleize %></td>
+                      <td><%= @user.model_user_status %></td>
                     </tr>
                     <!--<tr>-->
                     <!--  <td>Dispatcher</td>-->
                     <!--  <td></td>-->
                     <!--</tr>-->
-                    <tr>
-                      <td>Truck</td>
-                      <td><%= link_to "!missing_function!", "#" %></td>
-                    </tr>
-                    <tr>
-                      <td>Trailer</td>
-                      <td><%= link_to "!missing_function!", "#" %></td>
-                    </tr>
+                  
                     <tr>
                       <td>Status Updated On</td>
                       <td>
