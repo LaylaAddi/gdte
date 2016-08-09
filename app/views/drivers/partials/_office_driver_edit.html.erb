@@ -6,7 +6,7 @@
     <%= f.input :employment_status, collection: Driver::EmploymentStatus, 
       label: "Employment Status", required: true, id: 'employment_status' %>
     <section class='nopadding' id='driver_declined'>
-    <%= f.input :driver_declined, label: "Reason for declining application", 
+    <% f.input :driver_declined, label: "Reason for declining application", 
     "data-depends-on" => "#object_type_name", "data-depends-on-value" => "declined"   %>
     </section>
     <%= f.button :submit, "Update", class: "btn btn-success btn-3d" %>

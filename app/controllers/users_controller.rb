@@ -6,13 +6,15 @@ class UsersController < ApplicationController
       :authenticate_user!
     end
   end
-  before_action :restrict_driver, except: [:show]
+  before_action :restrict_driver, except: [:show] 
+  before_action :set_user_id, except: [:dashboard] 
 
   
   
   def dashboard
     @user = current_user
   end
+  
   
   
   def index
@@ -31,6 +33,11 @@ class UsersController < ApplicationController
     else      
       @users = User.all.page(params[:page]).per(15)  
     end
+    
+    if user_signed_in? and current_user.registered? 
+      flash[:error] = "#{@user.first_name}, you are not able to perform that function."
+      redirect_to root_path
+    end      
   end
     
   

@@ -30,13 +30,13 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <%= f.input :email, label: "Enter your personal email" %>
+                <%= f.input :email, label: "Enter your email" %>
               </div>
             </div>
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                <%= f.input :cellphone, label: "Personal telephone" %>
+                <%= f.input :cellphone, label: "Telephone" %>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             <div class="col-sm-6">
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
-                <%= f.input :street_address_1, label:  "Additional address info (if any)" %>
+                <%= f.input :street_address_2, label:  "Additional address info (if any)" %>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
             <div class="col-sm-6">
 <label class="text-center">Date Of Birth</label>
                
-                <%=  f.date_field :dob, as: :date, value: f.object.dob %>
+                <%=  f.input :dob, start_year: 1930 %>
 
             </div>
           </div>

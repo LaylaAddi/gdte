@@ -120,7 +120,8 @@ class DriversController < ApplicationController
                                      :updated_by,
                                      :e_contact_name,
                                      :e_contact_number,
-                                     :driver_declined 
+                                     :driver_declined,
+                                     :cellphone
                                       )
     end
 end

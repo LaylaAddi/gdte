@@ -29,19 +29,19 @@
               <table class="table table-bordered table-striped">
                 <tbody>
                   <tr>
-                    <td>Status:</td>
+                    <td>Position:</td>
                     <td><%= @user.model_user_status %></td>
                   </tr>
                   <tr>
-                    <td>Status Updated On:</td>
+                    <td>Account Updated On:</td>
                     <td>
                       <strong>
                         
-                          <% if @user.updated_by.blank? %> 
+                          <% if @user.updated_at.blank? %> 
                           Never Updated
                           <% else %> 
                           <%= @user.updated_at.strftime("%A, %d %b %Y at %l:%M %p (UTC)") %>
-                          By: <%= @user.updated_by %>
+                           <%= @user.updated_by %>
                           <% end %> 
                       </strong>
                     </td>

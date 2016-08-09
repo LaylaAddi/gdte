@@ -17,7 +17,7 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :cellphone,
                                    :first_name,
                                    :last_name, 
-                                   :dob
+                                   :dob 
                                    )
   end
 
@@ -50,7 +50,8 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :last_name,
                                    :e_contact_name,
                                    :e_contact_number,
-                                   :driver_declined 
+                                   :driver_declined,
+                                   :cellphone
                                   )
                               
   end

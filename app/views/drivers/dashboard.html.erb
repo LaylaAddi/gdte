@@ -1,10 +1,14 @@
-
-  
   <div class="container">
     <h2><%= current_driver.first_name %>'s Dashboard</h2><br /> 
-     <%= render "drivers/partials/driver_approved" if current_driver.employment_status == "approved" %>
-    <%= render "drivers/partials/driver_pending" if current_driver.employment_status == "pending" %>
-    <%= render "drivers/partials/driver_declined" if current_driver.employment_status == "declined" %>
+<% if current_driver.employment_status == "pending" && !@years_of_experience.present? %> 
+<%= render "drivers/partials/driver_pending" %>
+<% elsif current_driver.employment_status  == "submitted"  %>
+
+<%= render "drivers/partials/driver_completed_application" %>
+<% end %>
+<%= render "drivers/partials/driver_approved" if current_driver.employment_status == "approved" %>
+    
+<%= render "drivers/partials/driver_declined" if current_driver.employment_status == "declined" %>
     <div class="row">
       <div class="col-md-5 col-md-offset-3 ">
         <br> 

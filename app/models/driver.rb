@@ -5,9 +5,31 @@ class Driver < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   include Dropdown 
   has_many :office_driver_comments, dependent: :destroy
-  # validates_presence_of :first_name, :last_name, :cellphone, :street_address_1,
-  # :city, :state, :zip_code, :dob
 
+  validates :first_name, presence: true, on: :create 
+  validates :last_name, presence: true, on: :create 
+  validates :street_address_1, presence: true, on: :create 
+  validates :cellphone, presence: true, on: :create 
+  validates :city, presence: true, on: :create 
+  validates :state, presence: true, on: :create 
+  validates :zip_code, presence: true, on: :create 
+  validates :dob, presence: true, on: :create 
+  
+  validates :first_name, presence: true, on: :update
+  validates :last_name, presence: true, on: :update 
+  validates :street_address_1, presence: true, on: :update 
+  validates :cellphone, presence: true, on: :update 
+  validates :city, presence: true, on: :update 
+  validates :state, presence: true, on: :update 
+  validates :zip_code, presence: true, on: :update 
+  validates :dob, presence: true, on: :update 
+  
+  validates :years_of_experience, presence: true, on: :update 
+  validates :license_number, presence: true, on: :update 
+  validates :social_number, presence: true, on: :update 
+
+
+  
   mount_uploader :license_image, ImageUploader 
   mount_uploader :social_image, ImageUploader 
   mount_uploader :medical_image, ImageUploader

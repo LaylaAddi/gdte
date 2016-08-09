@@ -1,6 +1,6 @@
 <% if @admin %>
 <%= render 'drivers/partials/admin_driver_edit' %>
-<% elsif @user.user_type == 'office' %>
+<% elsif current_user.office? && user_signed_in? %>
 <%= render 'drivers/partials/office_driver_edit' %>
 <% else %>
 

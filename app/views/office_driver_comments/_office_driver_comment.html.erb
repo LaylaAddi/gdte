@@ -12,7 +12,7 @@
   </div>
 </div>
 <br />
-<% if @user.id == current_user.id%>
+<% if office_driver_comment.user_id == current_user.id %>
 <%= link_to "Edit Note", 
   edit_driver_office_driver_comment_path(office_driver_comment.driver, 
   office_driver_comment),  
