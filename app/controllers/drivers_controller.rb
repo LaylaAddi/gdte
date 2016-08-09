@@ -1,6 +1,11 @@
 class DriversController < ApplicationController
-  # before_action :authenticate_user!, except: [:show, :dashboard] 
-  # before_action :authenticate_admin!
+  before_action do
+    if current_admin != nil 
+      authenticate_admin! 
+    else 
+      authenticate_driver!
+    end
+  end
   before_action :set_the_driver_by_id, except: [:dashboard, :index]
   before_action :set_the_user, except: [:dashboard]
   before_action :set_the_admin  

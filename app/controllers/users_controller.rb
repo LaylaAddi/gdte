@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action do
     if current_admin != nil 
-      :authenticate_admin! 
+      authenticate_admin! 
     else 
-      :authenticate_user!
+      authenticate_user!
     end
   end
   before_action :restrict_driver, except: [:show] 
