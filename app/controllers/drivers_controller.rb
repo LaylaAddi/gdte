@@ -2,12 +2,15 @@ class DriversController < ApplicationController
   before_action do
     if current_admin != nil 
       authenticate_admin! 
-    else 
+    elsif current_driver != nil 
       authenticate_driver!
+    elsif current_user != nil 
+      authenticate_user!      
     end
   end
+
   before_action :set_the_driver_by_id, except: [:dashboard, :index]
-  before_action :set_the_user, except: [:dashboard]
+  before_action :set_the_user
   before_action :set_the_admin  
   before_action :restrict_driver, except: [:show, :dashboard]
 
@@ -15,9 +18,11 @@ class DriversController < ApplicationController
  
   def dashboard
     @driver = current_driver
+    @user = current_user
   end
   
   def index
+
     if params[:employment_status] 
       @drivers = Driver.where(employment_status: params[:employment_status]).page(params[:page]).per(15)
 
@@ -56,7 +61,7 @@ class DriversController < ApplicationController
       flash[:success] = "The driver was updated"
       redirect_to @driver
     else
-      flash[:error] = "There was a problem" 
+      flash[:error] = @driver.errors.full_messages.to_sentence  
       render :edit  
     end
 
