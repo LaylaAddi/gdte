@@ -75,6 +75,15 @@
   )
   puts  admin.inspect
 end
+
+1.times do
+  usersteve = User.create(
+  email: "s.chesnowitz.com", 
+  password: "password", 
+  password_confirmation: "password"
+  )
+  puts  usersteve.inspect
+end
   
  
     
