@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'working mail password recovery'
+git commit -m 'fb & linkedin'
 git push -u origin master 
 git push dokku master
 
