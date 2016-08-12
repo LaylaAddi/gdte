@@ -27,6 +27,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       t.boolean :flatbed, default: false
       t.date :dob
       t.string :pdf
+      t.string :employment_status, default: "submitted"  
       t.string :updated_by
       t.string :e_contact_name
       t.string :e_contact_number
