@@ -59,6 +59,7 @@ module Dropdown
       
     EmploymentStatus =
   [
+    "submitted",
     "pending",
     "approved",
     "declined",
