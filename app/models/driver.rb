@@ -15,6 +15,7 @@ class Driver < ApplicationRecord
   validates :zip_code, presence: true, on: :create 
   validates :dob, presence: true, on: :create 
   
+
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update 
   validates :street_address_1, presence: true, on: :update 
@@ -24,10 +25,13 @@ class Driver < ApplicationRecord
   validates :zip_code, presence: true, on: :update 
   validates :dob, presence: true, on: :update 
   
-  validates :years_of_experience, presence: true, on: :update 
-  validates :license_number, presence: true, on: :update 
-  validates :social_number, presence: true, on: :update 
-
+  validates :years_of_experience, presence: false, on: :update, if: :office_present?
+  validates :license_number, presence: false, on: :update, if: :office_present?
+  validates :social_number, presence: false, on: :update, if: :office_present?
+  
+  def office_present?
+    current_user == user.office?
+  end
 
   
   mount_uploader :license_image, ImageUploader 

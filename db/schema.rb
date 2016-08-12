@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711111510) do
+ActiveRecord::Schema.define(version: 20170711111508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170711111510) do
     t.boolean  "flatbed",                default: false
     t.date     "dob"
     t.string   "pdf"
+    t.string   "employment_status",      default: "submitted"
     t.string   "updated_by"
     t.string   "e_contact_name"
     t.string   "e_contact_number"
@@ -72,7 +73,6 @@ ActiveRecord::Schema.define(version: 20170711111510) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.string   "employment_status",      default: "submitted"
     t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree
   end
