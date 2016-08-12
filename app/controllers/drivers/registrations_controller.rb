@@ -17,7 +17,8 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
                                    :cellphone,
                                    :first_name,
                                    :last_name, 
-                                   :dob 
+                                   :dob, 
+                                   :employment_status
                                    )
   end
 

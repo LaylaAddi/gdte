@@ -5,4 +5,4 @@ git push dokku master
 
 
  
-
+rails g migration AddEmploymentStatusToDrivers employment_status:string, default: "submitted"
