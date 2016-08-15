@@ -1,6 +1,12 @@
+<style>
+ .hidden { 
+   display: none;
+ } 
+</style>
+
 <div class="container">
   <button class="btn btn-success btn-xs">Hide/Show Notes</button>
-<section class="display-none">
+<section class="hidden">
   <%= render @driver.office_driver_comments %>
   <%= render 'office_driver_comments/form' %> 
 </section>
@@ -8,7 +14,7 @@
   
 <script>
 $( "button" ).click(function() {
-  $( "section" ).toggleClass('display-none');
+  $( "section" ).toggleClass('hidden');
 });
 </script>  
   <div class="row">
