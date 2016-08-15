@@ -4,16 +4,16 @@ class Driver < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include Dropdown 
-  has_many :office_driver_comments, dependent: :destroy 
+  has_many :office_driver_comments, dependent: :destroy  
 
-  # validates :first_name, presence: true, on: :create 
-  # validates :last_name, presence: true, on: :create 
-  # validates :street_address_1, presence: true, on: :create 
-  # validates :cellphone, presence: true, on: :create 
-  # validates :city, presence: true, on: :create 
-  # validates :state, presence: true, on: :create 
-  # validates :zip_code, presence: true, on: :create 
-  # validates :dob, presence: true, on: :create 
+  validates :first_name, presence: true, on: :create 
+  validates :last_name, presence: true, on: :create 
+  validates :street_address_1, presence: true, on: :create 
+  validates :cellphone, presence: true, on: :create 
+  validates :city, presence: true, on: :create 
+  validates :state, presence: true, on: :create 
+  validates :zip_code, presence: true, on: :create 
+  validates :dob, presence: true, on: :create 
   
 
   validates :first_name, presence: true, on: :update
