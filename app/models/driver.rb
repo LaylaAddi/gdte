@@ -24,6 +24,9 @@ class Driver < ApplicationRecord
   validates :state, presence: true, on: :update 
   validates :zip_code, presence: true, on: :update 
   validates :dob, presence: true, on: :update 
+  validates :years_of_experience, presence: true, on: :update
+  validates :license_number, presence: true, on: :update
+  validates :social_number, presence: true, on: :update
   
   validates :years_of_experience, presence: false, on: :update, if: :office_present?
   validates :license_number, presence: false, on: :update, if: :office_present?
