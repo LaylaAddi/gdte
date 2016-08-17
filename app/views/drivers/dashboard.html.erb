@@ -1,6 +1,6 @@
   <div class="container">
     <h2><%= current_driver.first_name %>'s Dashboard</h2><br /> 
-<% if current_driver.employment_status == "pending" && !@years_of_experience.present? %> 
+<% if current_driver.employment_status == "submitted" && !@years_of_experience.present? %> 
 <%= render "drivers/partials/driver_pending" %>
 <% elsif current_driver.employment_status  == "submitted"  %>
 
