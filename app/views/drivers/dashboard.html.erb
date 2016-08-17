@@ -2,7 +2,7 @@
     <h2><%= current_driver.first_name %>'s Dashboard</h2><br /> 
 <% if current_driver.employment_status == "submitted" && !@years_of_experience.present? %> 
 <%= render "drivers/partials/driver_pending" %>
-<% elsif current_driver.employment_status  == "submitted"  %>
+<% elsif current_driver.employment_status  == "submitted" && @license_number.present?  %> 
 
 <%= render "drivers/partials/driver_completed_application" %>
 <% end %>
