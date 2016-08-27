@@ -28,7 +28,7 @@ gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'ma
 gem 'cancancan', '~> 1.15'
 gem 'dotiw', '~> 3.1', '>= 3.1.1'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
-
+gem 'ransack', '~> 1.8', '>= 1.8.2'
 
 
 

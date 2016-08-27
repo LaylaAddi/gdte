@@ -22,6 +22,7 @@ class DriversController < ApplicationController
   end
   
   def index
+    @search = Driver.search(params[:q])
 
     if params[:employment_status] 
       @drivers = Driver.where(employment_status: params[:employment_status]).page(params[:page]).per(15)

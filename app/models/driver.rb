@@ -85,12 +85,5 @@ class Driver < ApplicationRecord
       return "No"
     end
   end  
-  
-
-  
-
-    
-  
-  
 end            
 
