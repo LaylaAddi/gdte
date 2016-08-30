@@ -21,8 +21,6 @@ gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1' #https://rubygems.org/gems/mini_magick/versions/4.5.1
-gem 'fog', '~> 1.38'
-gem 'aws-sdk', '~> 2.4', '>= 2.4.2'
 gem 'ffaker', '~> 2.2'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 gem 'cancancan', '~> 1.15'
