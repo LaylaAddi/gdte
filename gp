@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'ransack sort driver by ID'
+git commit -m 'git remote new dokku'
 git push -u origin master 
 git push dokku master
 
