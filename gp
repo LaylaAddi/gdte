@@ -1,5 +1,5 @@
 git add -A
-git commit -m 'git remote new dokku'
+git commit -m 'relaunch site'
 git push -u origin master 
 git push dokku master
 
